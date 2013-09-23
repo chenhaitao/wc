@@ -40,6 +40,8 @@
 		5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9417EF034D008B1B78 /* MagicalRecord.m */; };
 		5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */; };
 		5F408CC117EF0896008B1B78 /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CC017EF0896008B1B78 /* WZUser.m */; };
+		5F9C6DF717F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C6DF517F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m */; };
+		5F9C6DF817F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9C6DF617F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib */; };
 		E70FF4AF17D3718000253F32 /* CommentVO.m in Sources */ = {isa = PBXBuildFile; fileRef = E70FF4AE17D3718000253F32 /* CommentVO.m */; };
 		E72FCCEA17E348B8004DCA10 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E72FCCE917E348B8004DCA10 /* bg.png */; };
 		E72FCCEC17E369DC004DCA10 /* blueBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E72FCCEB17E369DC004DCA10 /* blueBg.png */; };
@@ -651,6 +653,9 @@
 		5F408CB417EF049C008B1B78 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5F408CBF17EF0896008B1B78 /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
 		5F408CC017EF0896008B1B78 /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
+		5F9C6DF417F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserNameOrPasswordViewController.h; sourceTree = "<group>"; };
+		5F9C6DF517F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditUserNameOrPasswordViewController.m; sourceTree = "<group>"; };
+		5F9C6DF617F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUserNameOrPasswordViewController.xib; sourceTree = "<group>"; };
 		E70FF4AD17D3718000253F32 /* CommentVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentVO.h; sourceTree = "<group>"; };
 		E70FF4AE17D3718000253F32 /* CommentVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVO.m; sourceTree = "<group>"; };
 		E72FCCE917E348B8004DCA10 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
@@ -3248,6 +3253,9 @@
 				E7B37BA617E8DD74009D0F6F /* AccountMgrViewController.m */,
 				E7B37BA817E8DEFF009D0F6F /* AccountMgrCell.h */,
 				E7B37BA917E8DEFF009D0F6F /* AccountMgrCell.m */,
+				5F9C6DF417F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.h */,
+				5F9C6DF517F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m */,
+				5F9C6DF617F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib */,
 				E7BA664D17CC7D6F00772E79 /* UserSetting */,
 			);
 			path = SettingView;
@@ -3571,6 +3579,7 @@
 				E7B32DF817E3225B006A44A5 /* ErrorProperty.plist in Resources */,
 				E72FCCEA17E348B8004DCA10 /* bg.png in Resources */,
 				E72FCCEC17E369DC004DCA10 /* blueBg.png in Resources */,
+				5F9C6DF817F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3870,6 +3879,7 @@
 				5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */,
 				5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */,
 				5F408CC117EF0896008B1B78 /* WZUser.m in Sources */,
+				5F9C6DF717F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

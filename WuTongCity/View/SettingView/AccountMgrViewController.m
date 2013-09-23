@@ -9,6 +9,7 @@
 #import "AccountMgrViewController.h"
 #import "AccountMgrCell.h"
 #import "WZUser.h"
+#import "EditUserNameOrPasswordViewController.h"
 
 @interface AccountMgrViewController ()
 
@@ -76,7 +77,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    EditUserNameOrPasswordViewController *edit = [[EditUserNameOrPasswordViewController alloc] init];
+    [self.navigationController pushViewController:edit animated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
