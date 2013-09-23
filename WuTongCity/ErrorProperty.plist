@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ERROR_001</key>
+	<string></string>
+	<key>ERROR_002</key>
+	<string></string>
+	<key>ERROR_003</key>
+	<string></string>
+	<key>ERROR_004</key>
+	<string></string>
+	<key>ERROR_005</key>
+	<string></string>
+	<key>ERROR_010</key>
+	<string>您的邻居已入住该住宅</string>
+	<key>ERROR_011</key>
+	<string>修改住宅失败</string>
+</dict>
+</plist>

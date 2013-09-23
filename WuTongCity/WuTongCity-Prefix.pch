@@ -1,0 +1,145 @@
+//
+// Prefix header for all source files of the 'WutongCity' target in the 'WutongCity' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#import "DataCenter.h"
+#import "RequestLinkUtil.h"
+#import "SBJson.h"
+#import "ASIFormDataRequest.h"
+#import "XMPPManager.h"
+#import "WCMessageObject.h"
+#import "WCUserObject.h"
+#import "WCMessageUserUnionObject.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "MBProgressHUD.h"
+
+#endif
+
+
+
+//FMDB
+#define FMDBQuickCheck(SomeBool) { if (!(SomeBool)) { NSLog(@"Failure on line %d", __LINE__); abort(); } }
+
+#define DATABASE_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]stringByAppendingString:@"/weChat.db"]
+
+
+
+
+//API路径
+//#define API_BASE_URL(_URL_) [NSURL URLWithString:[@"http://www.hcios.com:8080/" stringByAppendingString:_URL_]]
+
+//#define kXMPPmyJID @"myXmppJid"
+//#define kXMPPmyPassword @"myXmppPassword"
+//#define kXMPPNewMsgNotifaction @"xmppNewMsgNotifaction"
+#define DOMAIN_NAME             @"admin"
+#define HOST_NAME               @"114.80.100.14"
+#define MESSAGE_NOTIFACTION     @"messageNotifaction"
+
+//EGORefresh
+#define SAFE_RELEASE(_obj) if (_obj != nil) {_obj = nil;}
+//用户登录信息
+
+#define LOGIN_ID            @"loginId"//登陆id
+#define LOGIN_PASSWORD      @"loginPassword"//登陆密码
+#define VILLAGE_NAME        @"villageName"//小区名称
+#define VILLAGE_ID        @"villageId"//小区id
+
+#define LOGIN_TYPE          @"mobile"//登陆类型
+#define IPHONE              @"iPhone"
+
+
+
+
+//#define MY_USER_AVATAR      @"myAvatar"
+//#define MY_USER_NICKNAME    @"myNickname"
+
+//快速注册账号的默认密码
+#define DEFAULT_USER_PASSWORD @"Ww123456"
+
+//openFire
+
+
+
+
+#define FONT_NAME_ARIAL @"Arial"
+#define FONT_NAME_COURIER_BOLDOBLIQUE @"Courier-BoldOblique"
+#define FONT_NAME_TREBUCHETMS_BOLD @"TrebuchetMS-Bold"
+
+
+#define ACCOUNT_LABEL  @"账号"
+#define PASSWORD_LABEL @"密码"
+#define APASSWORD_LABEL @"确认密码:"
+#define INPUT_YOUR_ACCOUNT @"请输入您的账号"
+#define INPUT_YOUR_NICKNAME @"请输入您的昵称"
+#define INPUT_YOUR_PWD @"请输入您的密码"
+#define INPUT_YOUR_APWD @"请再次输入您的密码"
+#define INPUT_YOUR_CHECKINGCODE @"请输入验证码"
+//#define TEXTLENGTH 18
+
+#define LOGIN_NAME_RULE        @"^[A-Za-z0-9@._-]+$"
+#define LOGIN_PASSWORD_RULE    @"^[A-Za-z0-9]+$"
+
+
+
+//邻居说---------------------start----------------------
+
+
+//用户发表weibo时可使用的最大图片数
+#define WEIBO_CREATE_MAX_IMAGE 9
+//邻居说---------------------end------------------------
+
+
+
+//个人信息设置
+#define AVATAR         @"头像"
+#define NICKNAME        @"昵称" 
+#define SIGNATURE       @"个性签名" 
+#define REALNAME        @"姓名" 
+#define MOBILE         @"电话" 
+#define ADDRESS     @"地址" 
+#define SEX         @"性别" 
+#define EMPLOYER         @"职业" 
+#define BIRTHDAY    @"生日" 
+
+#define AVATAR_MARK         @"1"
+#define NICKNAME_MARK        @"2"
+#define SIGNATURE_MARK       @"3"
+#define REALNAME_MARK        @"4"
+#define MOBILE_MARK         @"5"
+#define ADDRESS_MARK     @"6"
+#define SEX_MARK         @"7"
+#define EMPLOYER_MARK         @"8"
+#define BIRTHDAY_MARK    @"9"
+
+#define ISSHOW          @"是否公开"
+
+#define MALE            @"男"
+#define FEMALE          @"女"
+#define MALE_VALUE      @"0"
+#define FEMALE_VALUE    @"1"
+
+//设置notification
+#define USERINFO        @"个人信息"
+#define NOTIFICATION    @"消息通知"
+#define FUNCTIONSET     @"功能设置"
+#define PRIVACY         @"安全隐私"
+#define ACCOUNTMGR      @"账户管理"
+#define ABOUT           @"关于梧桐邑"
+#define LOGINOUT        @"退出登录"
+
+
+#define ERROR_001       @"ERROR_001"
+
+
+//add
+#import "CoreData+MagicalRecord.h"
