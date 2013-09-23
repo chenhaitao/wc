@@ -337,6 +337,9 @@
     
     
     SDWebImageDataSource *images_ = [[SDWebImageDataSource alloc] initWithImageArray:[btn.param objectForKey:@"imageArray"]];
+    
+    
+    
     KTPhotoScrollViewController *newController = [[KTPhotoScrollViewController alloc]
                                                   initWithDataSource:images_
                                                   andStartWithPhotoAtIndex:[[btn.param objectForKey:@"index"] intValue]];
@@ -350,7 +353,7 @@
 //    window.rootViewController = newController;
 //    [window makeKeyAndVisible];
 
-    
+    newController.statusbarHidden = NO;
     [self.navigationController pushViewController:newController animated:YES];
 }
 
