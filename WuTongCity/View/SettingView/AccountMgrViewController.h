@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ResetPasswordViewController.h>
 
 @interface AccountMgrViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>{
     UITableView *accountTableView;//屏蔽用户列表
     NSMutableArray *accountArray;
+    ResetPasswordViewController *resetPasswordViewController;
 }
 
 @end

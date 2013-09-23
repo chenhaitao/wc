@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42D0ED6017F0069300EAF7BB /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D0ED5F17F0069300EAF7BB /* ResetPasswordViewController.m */; };
 		5F408C5617EEFF70008B1B78 /* MsgComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C4D17EEFF70008B1B78 /* MsgComment.m */; };
 		5F408C5717EEFF70008B1B78 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C4F17EEFF70008B1B78 /* Topic.m */; };
 		5F408C5817EEFF70008B1B78 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C5117EEFF70008B1B78 /* User.m */; };
@@ -584,6 +585,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42D0ED5E17F0069300EAF7BB /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		42D0ED5F17F0069300EAF7BB /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		5F408C4C17EEFF70008B1B78 /* MsgComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgComment.h; sourceTree = "<group>"; };
 		5F408C4D17EEFF70008B1B78 /* MsgComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgComment.m; sourceTree = "<group>"; };
 		5F408C4E17EEFF70008B1B78 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
@@ -3249,6 +3252,8 @@
 				E7B37BA817E8DEFF009D0F6F /* AccountMgrCell.h */,
 				E7B37BA917E8DEFF009D0F6F /* AccountMgrCell.m */,
 				E7BA664D17CC7D6F00772E79 /* UserSetting */,
+				42D0ED5E17F0069300EAF7BB /* ResetPasswordViewController.h */,
+				42D0ED5F17F0069300EAF7BB /* ResetPasswordViewController.m */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -3870,6 +3875,7 @@
 				5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */,
 				5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */,
 				5F408CC117EF0896008B1B78 /* WZUser.m in Sources */,
+				42D0ED6017F0069300EAF7BB /* ResetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

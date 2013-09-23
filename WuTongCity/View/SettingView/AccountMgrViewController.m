@@ -31,6 +31,7 @@
     accountTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height) style:UITableViewStylePlain];
     accountTableView.dataSource = self;
     accountTableView.delegate = self;
+ 
     [self.view addSubview:accountTableView];
     
 }
@@ -77,6 +78,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    WZUser *user = [accountArray objectAtIndex:[indexPath row]];
+
+    resetPasswordViewController = [[ResetPasswordViewController alloc]initWithUser:user];
+    resetPasswordViewController.navigationItem.title = @"个人信息";
+    resetPasswordViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:resetPasswordViewController animated:YES];
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
