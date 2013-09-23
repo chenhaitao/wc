@@ -7,6 +7,7 @@
 //
 
 #import "EditUserNameOrPasswordViewController.h"
+#import "MD5.h"
 
 @interface EditUserNameOrPasswordViewController () <UITextFieldDelegate>
 
@@ -61,21 +62,21 @@
             return;
         }else{
             NSString *url = [SERVER_DEFAULT_ADDRESS stringByAppendingString:@"/m/user/userModify.do"];
-            url =[url stringByAppendingFormat:@"?loginId=%@&loginPassword=%@",self.userName.text,self.password.text ];
+            url =[url stringByAppendingFormat:@"?loginId=%@&loginPassword=%@",self.userName.text,[MD5 md5:self.password.text]];
             ASIHTTPRequest *updateReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
             [updateReq setRequestMethod:@"GET"];
 //            [updateReq setPostValue:self.userName.text forKey:@"loginId"];
 //            [updateReq setPostValue:self.password.text forKey:@"loginPassword"];
-            __block ASIHTTPRequest *request = updateReq;
+           
             [updateReq setCompletionBlock:^{
-            NSString *json =   request.responseString;
-                NSLog(@"%@",request.responseStatusMessage);
-                 NSLog(@"%@",request.responseString);
-                 NSLog(@"%@",request.responseHeaders);
-                NSLog(@"%@",request.responseData);
-                  NSLog(@"%@",request.requestHeaders);
+                self.user.password = self.password.text;
+                self.user.loginId = self.userName.text;
+                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
+                
+                
                [[[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
                 [HUD hide:YES];
+                
             }];
             
             [updateReq setFailedBlock:^{

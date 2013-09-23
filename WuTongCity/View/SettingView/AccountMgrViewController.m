@@ -134,6 +134,7 @@
     [accountArray removeAllObjects];
    // accountArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"accList"];
     accountArray =  [NSMutableArray arrayWithArray: [WZUser MR_findAll]];
+    [accountTableView reloadData];
 }
 
 @end
