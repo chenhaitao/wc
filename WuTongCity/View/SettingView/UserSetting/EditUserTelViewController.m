@@ -108,6 +108,7 @@
         [userTelTextField becomeFirstResponder];//默认一直打开键盘
         [userTelTextField setBorderStyle:UITextBorderStyleNone]; //外框类型
         userTelTextField.text = self.userVO.mobile; //默认显示的字
+        userTelTextField.keyboardType =UIKeyboardTypePhonePad;
         userTelTextField.textAlignment = NSTextAlignmentLeft;
         userTelTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         userTelTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
