@@ -58,6 +58,13 @@
         //用户头像
         avatarView = [[UIImageView alloc]initWithFrame:CGRectMake(220, 170, 80, 80)];
         NSString *avatarName = _userVO.avatar;
+        //解决头像在资料更新后不显示的问题（后台修改后没有更新）
+        if ([_userVO.userId isEqualToString:[DataCenter sharedInstance].userVO.userId])
+        {
+            avatarName = [DataCenter sharedInstance].userVO.avatar;
+        }
+
+        
         if (avatarName.length > 0) {
         NSString *avatarString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",avatarName];
         NSURL *avatarUrl=[NSURL URLWithString:avatarString];
