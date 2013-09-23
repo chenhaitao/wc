@@ -106,6 +106,12 @@
             //用户头像
             cell.avatarBtn = [[ParamButton alloc]initWithFrame:CGRectMake(10, 10, 40, 40)];
             NSString *avatarName = topicVO.avatar;
+            //解决头像在资料更新后不显示的问题（后台修改后没有更新）
+            if ([u.userId isEqualToString:[DataCenter sharedInstance].userVO.userId])
+            {
+                avatarName = [DataCenter sharedInstance].userVO.avatar;
+                
+            }
             if (avatarName.length > 0) {
                 NSString *avatarString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",avatarName];
                 NSURL *avatarUrl=[NSURL URLWithString:avatarString];
