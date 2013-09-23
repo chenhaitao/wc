@@ -20,11 +20,17 @@
         // Initialization code
         
         //相册
-        UIButton *albumBtn = [[ParamButton alloc]initWithFrame:CGRectMake(0, 0, 320, 220)];
+      /*  UIButton *albumBtn = [[ParamButton alloc]initWithFrame:CGRectMake(0, 0, 320, 220)];
         [albumBtn setBackgroundImage:[UIImage imageNamed:@"defablum.png"] forState:UIControlStateNormal];
         [albumBtn setBackgroundImage:[UIImage imageNamed:@"defablum.png"] forState:UIControlStateHighlighted];
-        [self addSubview:albumBtn];
         
+        [self addSubview:albumBtn];*/
+        NSArray *urls = [[NSUserDefaults standardUserDefaults] objectForKey:@"advertisementURL"];
+        NSString *url = [urls lastObject];
+        NSString *ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",url];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 220)];
+        [imageView setImageWithURL:[NSURL URLWithString:ulrString] placeholderImage:[UIImage imageNamed:@"defablum.png"]];
+        [self addSubview:imageView];
         
         //昵称
         UILabel *nickNameLab = [[UILabel alloc]initWithFrame:CGRectMake(20, 190, 190, 30)];

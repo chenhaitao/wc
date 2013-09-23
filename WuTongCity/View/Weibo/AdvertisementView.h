@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ParamButton.h"
 #define SCROLLVIEW_HEIGHT 220
+
 @interface AdvertisementView : UIView<UIScrollViewDelegate>{
     UIScrollView *scrollView;
     NSMutableArray *slideImages;

@@ -98,10 +98,14 @@
         if ([@"success" isEqualToString:[posterDict objectForKey:@"resultCode"]]) {
             NSArray *_posterArray = [posterDict objectForKey:@"result"];
             PosterVO *posterVO;
+            NSMutableArray *imageNames = [NSMutableArray array];
             for (NSDictionary *posterDict in _posterArray) {
                 posterVO = [[PosterVO alloc] initWithDict:posterDict];
                 [posterArray addObject:posterVO];
+                [imageNames addObject:posterVO.imageName];
             }
+            
+            [[NSUserDefaults standardUserDefaults] setObject:imageNames forKey:@"advertisementURL"];
             [self setPosterView];
         }else{
             NSDictionary *eDict = [posterDict objectForKey:@"globalErrors"];
