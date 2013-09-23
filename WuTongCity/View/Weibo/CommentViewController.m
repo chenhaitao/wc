@@ -199,6 +199,12 @@
                                                   modifyTime:[commentDict objectForKey:@"modifyTime"]];
             
             [_dataSource addObject:commentVO];
+            //排序按照时间
+            [_dataSource sortUsingComparator: ^(CommentVO *s1, CommentVO *s2){
+                return [s2.createTime compare:s1.createTime];
+            }];
+
+            
         }
     }
     else{

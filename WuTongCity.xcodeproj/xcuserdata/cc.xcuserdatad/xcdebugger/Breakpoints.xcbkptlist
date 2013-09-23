@@ -33,19 +33,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/SettingView/AccountMgrCell.m"
-         timestampString = "401606073.903042"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "-initWithUser:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
          timestampString = "401618583.138627"
          startingColumnNumber = "9223372036854775807"
