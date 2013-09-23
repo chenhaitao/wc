@@ -79,14 +79,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+     WZUser *user = [accountArray objectAtIndex:[indexPath row]];
     EditUserNameOrPasswordViewController *edit = [[EditUserNameOrPasswordViewController alloc] init];
+    edit.user = user;
     [self.navigationController pushViewController:edit animated:YES];
-
-    
-    WZUser *user = [accountArray objectAtIndex:[indexPath row]];
-
-  
-
 
 }
 
