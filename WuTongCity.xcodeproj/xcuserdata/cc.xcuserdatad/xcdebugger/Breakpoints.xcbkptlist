@@ -46,12 +46,12 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/SettingView/AccountMgrViewController.m"
-         timestampString = "401607834.231776"
+         filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
+         timestampString = "401618583.138627"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>

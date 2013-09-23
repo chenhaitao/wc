@@ -489,6 +489,16 @@
                 
                 [_dataSource addObject:topicVO];
             }
+//            NSArray *comparator = @[
+//                                 ^(TopicVO *s1, TopicVO *s2){
+//                                     return [s2.createTime compare:s1.createTime];
+//                                 },
+//                                 ];
+
+            //排序按照时间
+            [_dataSource sortUsingComparator: ^(TopicVO *s1, TopicVO *s2){
+                return [s2.createTime compare:s1.createTime];
+            }];
         }
     }else{
         UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"邻居说" message:@"邻居说读取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
