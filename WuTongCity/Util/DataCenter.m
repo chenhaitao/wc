@@ -106,14 +106,14 @@ static DataCenter *sharedDataCenter = nil;
     WZUser *user = [WZUser MR_findFirstByAttribute:@"userId" withValue:self.userVO.userId];
     if (user == nil) {
         user = [WZUser MR_createEntity];
-        user.loginId = self.userVO.loginId;
-        user.loginTime = self.userVO.loginTime;
-        user.nickName = self.userVO.nickName;
-        user.password = self.userVO.password;
-        user.userId = self.userVO.userId;
-        user.villageId = self.userVO.villageId;
-        [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
     }
+    user.loginId = self.userVO.loginId;
+    user.loginTime = self.userVO.loginTime;
+    user.nickName = self.userVO.nickName;
+    user.password = self.userVO.password;
+    user.userId = self.userVO.userId;
+    user.villageId = self.userVO.villageId;
+    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
    
     
 }
