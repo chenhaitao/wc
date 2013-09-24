@@ -457,7 +457,10 @@
 
 -(void)loadData{
     //发送微博列表请求
-    weiboReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:PUBLIC_BLOG_LIST]]];
+    
+    NSString *url = [RequestLinkUtil getUrlByKey:PUBLIC_BLOG_LIST];
+    url = [url stringByAppendingFormat:@"?currentVillage=%@", [DataCenter sharedInstance].village.uuid];
+    weiboReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
     [weiboReq setPostValue:[NSString stringWithFormat:@"%d",pageNo] forKey:@"pageNo"];//
     NSLog(@"%d",pageNo);
     [weiboReq setDelegate:self];
