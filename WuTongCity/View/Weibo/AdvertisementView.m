@@ -88,8 +88,11 @@
     
     [posterArray removeAllObjects];
     //获取广告
-    NSURL *url = [NSURL URLWithString:[RequestLinkUtil getUrlByKey:POSTER_LOAD]];
-    ASIFormDataRequest *posterListReq=[ASIFormDataRequest requestWithURL:url];
+    NSString *url = [RequestLinkUtil getUrlByKey:POSTER_LOAD];
+    url = [url stringByAppendingFormat:@"?currentVillage=%@", [DataCenter sharedInstance].village.uuid];
+    NSURL *theURL = [NSURL URLWithString:url];
+    
+    ASIFormDataRequest *posterListReq=[ASIFormDataRequest requestWithURL:theURL];
     [posterListReq setTimeOutSeconds:30];
     [posterListReq setDelegate:self];
     [posterListReq setCompletionBlock:^{//成功
