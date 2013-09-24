@@ -33,13 +33,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-         timestampString = "401618583.138627"
+         filePath = "WuTongCity/util/KTPhotoBrowser/KTPhotoScrollViewController.m"
+         timestampString = "401620141.618924"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "315"
-         endingLineNumber = "315"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-initWithDataSource:andStartWithPhotoAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -326,13 +326,14 @@
     [aUserPassWordText resignFirstResponder];
     [checkingCodeText resignFirstResponder];
     if (isCheckCode) {//如果验证码的键盘已经打开
+        
             CGRect frame = self.view.frame;
             //开始动画
             [UIView beginAnimations:nil context:nil];
             //设定动画持续时间
             [UIView setAnimationDuration:0.3];
             //动画的内容
-            frame.origin.y += 70;
+            frame.origin.y += 100;
             [self.view setFrame:frame];
             //动画结束
             [UIView commitAnimations];
@@ -340,37 +341,84 @@
     }
 }
 
-//点击软键盘上"Done"这个键，键盘自动隐藏,文本框、标签下移
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-	[textField resignFirstResponder];
-    CGRect frame = self.view.frame;
-    //开始动画
-    [UIView beginAnimations:nil context:nil];
-    //设定动画持续时间
-    [UIView setAnimationDuration:0.3];
-    //动画的内容
-    frame.origin.y += 70;
-    [self.view setFrame:frame];
-    //动画结束
-    [UIView commitAnimations];
-    return YES;
-}
-
-//弹出键盘时 文本框上移
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField.tag == 5) {
+     if (textField.tag == 5) {
+            [textField resignFirstResponder];
         CGRect frame = self.view.frame;
         //开始动画
         [UIView beginAnimations:nil context:nil];
         //设定动画持续时间
         [UIView setAnimationDuration:0.3];
         //动画的内容
-        frame.origin.y -= 70;
+        if (textField == checkingCodeText)
+        {
+            frame.origin.y += 100;
+        }
+        else
+        {
+            frame.origin.y += 70;
+        }
+        [self.view setFrame:frame];
+        //动画结束
+        [UIView commitAnimations];
+         isCheckCode = NO;
+     }
+    return YES;
+
+}
+
+//点击软键盘上"Done"这个键，键盘自动隐藏,文本框、标签下移
+//- (void)textFieldDidEndEditing:(UITextField *)textField{
+//    
+//    if (textField.tag == 5) {
+//        [textField resignFirstResponder];
+//        CGRect frame = self.view.frame;
+//        //开始动画
+//        [UIView beginAnimations:nil context:nil];
+//        //设定动画持续时间
+//        [UIView setAnimationDuration:0.3];
+//        //动画的内容
+//        if (textField == checkingCodeText)
+//        {
+//            frame.origin.y += 100;
+//        }
+//        else
+//        {
+//            frame.origin.y += 70;
+//        }
+//        [self.view setFrame:frame];
+//        //动画结束
+//        [UIView commitAnimations];
+//    }
+//    //return YES;
+//}
+
+//弹出键盘时 文本框上移
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField.tag == 5) {
+       
+        CGRect frame = self.view.frame;
+        //开始动画
+        [UIView beginAnimations:nil context:nil];
+        //设定动画持续时间
+        [UIView setAnimationDuration:0.3];
+        //动画的内容
+        
+        if (textField == checkingCodeText)
+        {
+            frame.origin.y -= 100;
+        }
+        else
+        {
+            frame.origin.y -= 70;
+        }
+        
         [self.view setFrame:frame];
         //动画结束
         [UIView commitAnimations];
         isCheckCode = YES;
     }
+    
     return YES;
 }
 
