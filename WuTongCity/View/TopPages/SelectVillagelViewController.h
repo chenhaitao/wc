@@ -18,7 +18,7 @@
     NSMutableDictionary *basicVillageDict;//小区信息字典
     UISearchBar *villageSearchBar;//搜索栏
 }
-
+@property (nonatomic,strong) NSArray *keys;
 //搜索查询
 - (void)updateSearchString:(NSString*)aSearchString;
 

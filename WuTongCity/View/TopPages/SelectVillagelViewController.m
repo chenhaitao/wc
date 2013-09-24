@@ -23,56 +23,75 @@
 -(id)init{
     if (self = [super init]) {
         self.navigationItem.title = @"小区列表";
-        villageDict = [[NSMutableDictionary alloc] init];
-        basicVillageDict = [[NSMutableDictionary alloc] init];
         
-        //发起获取小区信息请求
-        NSURL *url = [NSURL URLWithString:[RequestLinkUtil getUrlByKey:VILLAGE_LIST]];
-        ASIFormDataRequest *villageRequest=[ASIFormDataRequest requestWithURL:url];
-        [ASIFormDataRequest setShouldThrottleBandwidthForWWAN:YES];
-        villageRequest.timeOutSeconds= 30;
-        [villageRequest setDelegate:self];
-        [villageRequest setCompletionBlock:^{
-            NSString *villageString = villageRequest.responseString;
-            NSDictionary *reqDict = [villageString JSONValue];
-            if ([reqDict objectForKey:@"result"]) {
-                NSArray *villageArray = [reqDict objectForKey:@"result"];
-                for (NSDictionary *vDict in villageArray) {
-                    NSString *topWord = [[NSString alloc]init];
-                    Village * v = [[Village alloc]init];
-                    v.uuid = [vDict objectForKey:@"uuid"];
-                    v.name = [vDict objectForKey:@"name"];
-                    //返回中文字的首字母
-                    topWord = [topWord stringByAppendingString:[NSString stringWithFormat:@"%c",pinyinFirstLetter([v.name characterAtIndex:0])]];
-                    if ([villageDict objectForKey:topWord]) {
-                        [[villageDict objectForKey:topWord] addObject:v];
-                    }else{
-                        NSMutableArray *tempArray = [[NSMutableArray alloc] initWithObjects:v, nil];
-                        [villageDict setValue:tempArray forKey:topWord];
-                    }
-                }
-                basicVillageDict = villageDict;
-                [villageTableView reloadData];
-                
-            }else{
-                NSLog(@"请求失败");
-            }
-            
-            [HUD hide:YES];        }];
-        [villageRequest setFailedBlock:^{
-            [HUD hide:YES];
-            UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑"
-                                                      message:@"服务器异常"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"好的"
-                                            otherButtonTitles: nil];
-            [av show];
-            
-        }];
-        [villageRequest startAsynchronous];
-        [HUD show:YES];
     }
     return self;
+}
+
+
+- (void)_initData
+{
+    villageDict = [[NSMutableDictionary alloc] init];
+    basicVillageDict = [[NSMutableDictionary alloc] init];
+    
+    //发起获取小区信息请求
+    NSURL *url = [NSURL URLWithString:[RequestLinkUtil getUrlByKey:VILLAGE_LIST]];
+    ASIFormDataRequest *villageRequest=[ASIFormDataRequest requestWithURL:url];
+    [ASIFormDataRequest setShouldThrottleBandwidthForWWAN:YES];
+    villageRequest.timeOutSeconds= 30;
+    [villageRequest setDelegate:self];
+    [villageRequest setCompletionBlock:^{
+        NSString *villageString = villageRequest.responseString;
+        NSDictionary *reqDict = [villageString JSONValue];
+        if ([reqDict objectForKey:@"result"]) {
+            NSArray *villageArray = [reqDict objectForKey:@"result"];
+            for (NSDictionary *vDict in villageArray) {
+                NSString *topWord = [[NSString alloc]init];
+                Village * v = [[Village alloc]init];
+                v.uuid = [vDict objectForKey:@"uuid"];
+                v.name = [vDict objectForKey:@"name"];
+                //返回中文字的首字母
+                topWord = [topWord stringByAppendingString:[NSString stringWithFormat:@"%c",pinyinFirstLetter([v.name characterAtIndex:0])]];
+                if ([villageDict objectForKey:topWord]) {
+                    [[villageDict objectForKey:topWord] addObject:v];
+                }else{
+                    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithObjects:v, nil];
+                    [villageDict setValue:tempArray forKey:topWord];
+                }
+            }
+            
+            //给villageDict排序
+            NSArray *keys = [villageDict allKeys];
+            keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString * obj2) {
+                return [obj1 localizedCompare:obj2];
+            }];
+            self.keys = keys;
+            NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
+            for (NSString *key in keys) {
+                [tmp setObject:villageDict[key] forKey:key];
+            }
+            villageDict = tmp;
+            
+            basicVillageDict = villageDict;
+            [villageTableView reloadData];
+            
+        }else{
+            NSLog(@"请求失败");
+        }
+        
+        [HUD hide:YES];        }];
+    [villageRequest setFailedBlock:^{
+        [HUD hide:YES];
+        UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑"
+                                                  message:@"服务器异常"
+                                                 delegate:nil
+                                        cancelButtonTitle:@"好的"
+                                        otherButtonTitles: nil];
+        [av show];
+        
+    }];
+    [villageRequest startAsynchronous];
+    [HUD show:YES];
 }
 
 - (void)viewDidLoad{
@@ -83,6 +102,7 @@
     HUD.delegate = self;
     [HUD show:YES];
 
+    [self _initData];
 
 //    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"小区创建"
 //                                                                      style:UIBarButtonItemStylePlain
@@ -115,11 +135,11 @@
 
 //返回分组数量
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [[villageDict allKeys] count];
+    return [self.keys count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSString *key=[[villageDict allKeys] objectAtIndex:section];//返回当前分组对应neighbourDict的key值
+    NSString *key=[self.keys objectAtIndex:section];//返回当前分组对应neighbourDict的key值
     NSArray *sectionArray=[villageDict objectForKey:key];//根据key，取得Array
     return [sectionArray count]; //返回Array的大小
 }
@@ -127,7 +147,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * tableIdentifier=@"HouseSelCell";
     
-    NSString *key = [[villageDict allKeys] objectAtIndex:[indexPath section]];
+    NSString *key = [self.keys objectAtIndex:[indexPath section]];
+    NSLog(@"(%i,%i) and %@",indexPath.section,indexPath.row,key);
     NSArray *section = [villageDict objectForKey:key];
     Village *village = [section objectAtIndex:[indexPath row]];
     
@@ -140,14 +161,15 @@
 
 //分组的title
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *key = [[villageDict allKeys] objectAtIndex:section];
+   
+    NSString *key = [self.keys objectAtIndex:section];
     return key;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];//点击后cell背景消失
     //从小区字典集合中找到当前选中的小区信息,放入数据中心
-    NSString *key = [[villageDict allKeys] objectAtIndex:[indexPath section]];
+    NSString *key = [self.keys objectAtIndex:[indexPath section]];
     NSArray *section = [villageDict objectForKey:key];
     Village *village = [section objectAtIndex:[indexPath row]];
     [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
@@ -265,6 +287,7 @@
 -(void)villageRequestSuccess:(ASIFormDataRequest*)request{
     NSString *villageString = request.responseString;
     NSDictionary *reqDict = [villageString JSONValue];
+    
     if ([reqDict objectForKey:@"result"]) {
         NSArray *villageArray = [reqDict objectForKey:@"result"];
         for (NSDictionary *vDict in villageArray) {
@@ -281,6 +304,9 @@
                 [villageDict setValue:tempArray forKey:topWord];
             }
         }
+        
+        
+        
         basicVillageDict = villageDict;
         [villageTableView reloadData];
 

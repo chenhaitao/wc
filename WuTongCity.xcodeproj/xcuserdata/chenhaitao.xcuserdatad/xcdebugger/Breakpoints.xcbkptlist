@@ -8,32 +8,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/Weibo/AdvertisementView.m"
-         timestampString = "401694032.867383"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "95"
-         endingLineNumber = "95"
-         landmarkName = "-posterLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/Weibo/AdvertisementView.m"
-         timestampString = "401694033.811249"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
-         landmarkName = "-posterLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/Weibo/AdvertisementView.m"
          timestampString = "401694482.998337"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
