@@ -152,6 +152,25 @@
     Village *village = [section objectAtIndex:[indexPath row]];
     [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
     
+    NSArray *users =[WZUser   MR_findByAttribute:@"villageId" withValue:village.uuid ];
+     WZUser *user = [users lastObject];
+    if (user.loginId.length >0 && user.password.length >0 ) {
+        /*
+         [loginReq setPostValue:[_dict objectForKey:@"loginId"] forKey:@"loginId"];//账号
+         [loginReq setPostValue:[MD5 md5:[_dict objectForKey:@"password"]] forKey:@"loginPassword"];//密码
+         [loginReq setPostValue:IPHONE forKey:LOGIN_TYPE];//访问类型
+         [loginReq setPostValue:[_dict objectForKey:@"villageId"] forKey:@"villageId"];
+         */
+        
+       
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:user.loginId,@"loginId",user.password,@"password",user.villageId,@"villageId", nil];
+        [self login:dic];
+    }else{
+        LoginViewController *loginViewController = [[LoginViewController alloc]init];
+        [self.navigationController pushViewController:loginViewController animated:YES];
+    }
+    
+/*
 //    //判断当前小区是否已经有注册用户
 //    NSDictionary *dict = [[DataCenter sharedInstance] searchLoaclAccountByVillageId];
 //    if (dict) {
@@ -160,6 +179,7 @@
         LoginViewController *loginViewController = [[LoginViewController alloc]init];
         [self.navigationController pushViewController:loginViewController animated:YES];
 //    }
+ */
 }
 
 //创建小区

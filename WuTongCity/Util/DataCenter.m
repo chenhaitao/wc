@@ -112,7 +112,7 @@ static DataCenter *sharedDataCenter = nil;
     user.nickName = self.userVO.nickName;
     user.password = self.userVO.password;
     user.userId = self.userVO.userId;
-    user.villageId = self.userVO.villageId;
+    user.villageId =  [DataCenter sharedInstance].village.uuid;
     [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
    
     
