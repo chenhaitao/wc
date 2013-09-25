@@ -176,7 +176,8 @@
     
     NSArray *users =[WZUser   MR_findByAttribute:@"villageId" withValue:village.uuid ];
      WZUser *user = [users lastObject];
-    if (user.loginId.length >0 && user.password.length >0 ) {
+    BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
+    if (user.loginId.length >0 && user.password.length >0 && flag) {
         /*
          [loginReq setPostValue:[_dict objectForKey:@"loginId"] forKey:@"loginId"];//账号
          [loginReq setPostValue:[MD5 md5:[_dict objectForKey:@"password"]] forKey:@"loginPassword"];//密码
