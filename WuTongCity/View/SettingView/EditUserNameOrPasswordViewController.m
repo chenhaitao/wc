@@ -9,7 +9,7 @@
 #import "EditUserNameOrPasswordViewController.h"
 #import "MD5.h"
 
-@interface EditUserNameOrPasswordViewController () <UITextFieldDelegate>
+@interface EditUserNameOrPasswordViewController ()
 
 @end
 
@@ -34,6 +34,10 @@
     self.password.textColor = [UIColor blackColor];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
      [self.view addSubview:HUD];
+    //添加点击手势--点击撤销键盘
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignKeyboard)];
+    gestureRecognizer.cancelsTouchesInView = YES;
+    [self.view addGestureRecognizer:gestureRecognizer];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"保存"
                                                                     style:UIBarButtonItemStylePlain
@@ -46,7 +50,16 @@
     
     self.title = @"用户名密码修改";
 }
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -98,6 +111,12 @@
     
 }
 
+//注销键盘
+-(void)resignKeyboard{
+    [self.userName resignFirstResponder];
+    [self.password resignFirstResponder];
+    //[self keyboardMove:1];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

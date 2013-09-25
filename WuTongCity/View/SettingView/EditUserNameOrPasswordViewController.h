@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WZUser.h"
 
-@interface EditUserNameOrPasswordViewController : UIViewController
+@interface EditUserNameOrPasswordViewController : UIViewController<UITextFieldDelegate>
 {
 MBProgressHUD *HUD;
 }
