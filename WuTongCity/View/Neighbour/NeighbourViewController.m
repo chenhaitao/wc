@@ -51,6 +51,9 @@
     neighbourTableView.allowsSelectionDuringEditing = YES;
     [self.view addSubview:neighbourTableView];
     
+    self.topArray = [NSMutableArray array];
+    self.noTopArray = [NSMutableArray array];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -68,16 +71,26 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     //返回分组数量,即Array的数量
-    return 1;
+    return 2;
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [neighbourArray count];
+//    return [neighbourArray count];
+    if (section == 0) {
+        return self.topArray.count;
+    }else{
+        return self.noTopArray.count;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * tableIdentifier=@"NeighbourCell";
-    
-    UserVO *userVO = [neighbourArray objectAtIndex:[indexPath row]];
+    UserVO *userVO  = nil;
+    if (indexPath.section == 0) {
+        userVO = [self.topArray objectAtIndex:indexPath.row];
+    }else{
+        userVO = [self.noTopArray objectAtIndex:[indexPath row]];
+    }
+   
     NeighbourCell *cell=[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
     if(cell==nil){
         cell=[[NeighbourCell alloc]initWithUserVO:userVO];
@@ -92,6 +105,17 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title = nil;
+    if (section == 0) {
+        title = @"置顶邻居";
+    }else{
+        title = @"普通邻居";
+    }
+    return title;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -162,6 +186,17 @@
         }
         neighbourArray = [[NSMutableArray alloc] initWithArray:array];
     }
+    
+    [self.topArray removeAllObjects];
+    [self.noTopArray removeAllObjects];
+    for (UserVO *user in neighbourArray) {
+        if (user.isStick > 0) {
+            [self.topArray addObject:user];
+        }else{
+            [self.noTopArray addObject:user];
+        }
+    }
+    
     [neighbourTableView reloadData];
     
 }
@@ -188,6 +223,17 @@
                 [neighbourArray addObject:uvo];
                 [neighbourBasicArray addObject:uvo];
             }
+            
+            [self.topArray removeAllObjects];
+            [self.noTopArray removeAllObjects];
+            for (UserVO *user in neighbourArray) {
+                if (user.isStick > 0) {
+                    [self.topArray addObject:user];
+                }else{
+                    [self.noTopArray addObject:user];
+                }
+            }
+            
             [neighbourTableView reloadData];
         }
         [HUD hide:YES];

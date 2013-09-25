@@ -196,6 +196,7 @@
         [cancelStickReq setCompletionBlock:^{
             NSLog(@"%@",[cancelStickReq responseString]);
             [stickUserBtn setTitle:@"邻 居 置 顶" forState:UIControlStateNormal];
+          
 
         }];
         [cancelStickReq setFailedBlock:^{

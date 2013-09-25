@@ -21,4 +21,7 @@
 
 //@property(strong,nonatomic) NeighDetailViewController *neighDetailViewController;
 
+@property (nonatomic,strong) NSMutableArray *topArray;
+@property (nonatomic,strong) NSMutableArray *noTopArray;
+
 @end
