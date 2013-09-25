@@ -1,14 +1,14 @@
 //
-//  KTThumbView+SDWebImage.m
+//  KTPhotoView+SDWebImage.m
 //  Sample
 //
 //  Created by Henrik Nyh on 3/18/10.
 //
 
-#import "KTThumbView+SDWebImage.h"
+#import "KTPhotoView+SDWebImage.h"
 #import "SDWebImageManager.h"
 
-@implementation KTThumbView (SDWebImage)
+@implementation KTPhotoView (SDWebImage)
 
 - (void)setImageWithURL:(NSURL *)url {
    [self setImageWithURL:url placeholderImage:nil];
@@ -26,11 +26,11 @@
    }
    
    if (cachedImage) {
-      [self setThumbImage:cachedImage];
+      [self setImage:cachedImage];
    }
    else {
       if (placeholder) {
-         [self setThumbImage:placeholder];
+         [self setImage:placeholder];
       }
       
       if (url) {
@@ -40,7 +40,7 @@
 }
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image {
-   [self setThumbImage:image];
+   [self setImage:image];
 }
 
 @end

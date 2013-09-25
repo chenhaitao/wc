@@ -37,7 +37,12 @@
     UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 130)];
     stickUserBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 300, 40)];
     [stickUserBtn setBackgroundImage:[UIImage imageNamed:@"blueBg"] forState:UIControlStateNormal];
-    [stickUserBtn setTitle:@"邻 居 置 顶" forState:UIControlStateNormal];
+    if (userVO.isStick >0) {
+        [stickUserBtn setTitle:@"取 消 置 顶" forState:UIControlStateNormal];
+    }else{
+        [stickUserBtn setTitle:@"邻 居 置 顶" forState:UIControlStateNormal];
+    }
+    
     [stickUserBtn.titleLabel setFont:[UIFont fontWithName:@"TrebuchetMS-Bold" size:20]];
     [stickUserBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];//
     [stickUserBtn addTarget:self action:@selector(stickUser) forControlEvents:UIControlEventTouchUpInside];

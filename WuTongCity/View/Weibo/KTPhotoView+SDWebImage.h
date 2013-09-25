@@ -1,9 +1,8 @@
 //
-//  PhotoView+SDWebImage.h
-//  WuTongCity
+//  KTPhotoView+SDWebImage.h
+//  Sample
 //
-//  Created by alan  on 13-9-11.
-//  Copyright (c) 2013年 alan. All rights reserved.
+//  Created by Henrik Nyh on 3/18/10.
 //
 
 #import "KTPhotoView.h"

@@ -19,10 +19,10 @@
 #import "ParamButton.h"
 #import "OtherWeiboViewController.h"
 #import "TopicVO.h"
-#import "SDWebImageDataSource.h"
-#import "KTPhotoScrollViewController.h"
+#import "PhotoDataSource.h"
 #import "DateUtil.h"
 #import "FormatUtil.h"
+#import "KTPhotoScrollViewController.h"
 
 
 
@@ -341,14 +341,23 @@
     
     
     
+//    
+//    SDWebImageDataSource *images_ = [[SDWebImageDataSource alloc] initWithImageArray:[btn.param objectForKey:@"imageArray"]];
+//    
+//    
+//    
+//    KTPhotoScrollViewController *newController = [[KTPhotoScrollViewController alloc]
+//                                                  initWithDataSource:images_
+//                                                  andStartWithPhotoAtIndex:[[btn.param objectForKey:@"index"] intValue]];
     
-    SDWebImageDataSource *images_ = [[SDWebImageDataSource alloc] initWithImageArray:[btn.param objectForKey:@"imageArray"]];
-    
-    
+    NSArray *images = [btn.param objectForKey:@"imageArray"];
+    PhotoDataSource *dataSource = [[PhotoDataSource alloc] initWithImages:images];
     
     KTPhotoScrollViewController *newController = [[KTPhotoScrollViewController alloc]
-                                                  initWithDataSource:images_
-                                                  andStartWithPhotoAtIndex:[[btn.param objectForKey:@"index"] intValue]];
+                                                    initWithDataSource:dataSource
+                                                  andStartWithPhotoAtIndex:[[btn.param objectForKey:@"index"]intValue]];
+    //[newController setStatusbarHidden:YES];
+    
 //    UINavigationController *newNavController = [[UINavigationController alloc] initWithRootViewController:newController];
 //    [[newNavController navigationBar] setBarStyle:UIBarStyleBlack];
 //    [[newNavController navigationBar] setTranslucent:YES];
@@ -359,7 +368,7 @@
 //    window.rootViewController = newController;
 //    [window makeKeyAndVisible];
 
-    newController.statusbarHidden = NO;
+  
     [self.navigationController pushViewController:newController animated:YES];
 }
 

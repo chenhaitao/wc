@@ -41,6 +41,15 @@
 		5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9417EF034D008B1B78 /* MagicalRecord.m */; };
 		5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */; };
 		5F408CC117EF0896008B1B78 /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CC017EF0896008B1B78 /* WZUser.m */; };
+		5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */; };
+		5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892917F293B200249FAA /* KTPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891F17F293B200249FAA /* KTPhotoView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892A17F293B200249FAA /* KTThumbsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A892117F293B200249FAA /* KTThumbsView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892B17F293B200249FAA /* KTThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A892317F293B200249FAA /* KTThumbsViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892C17F293B200249FAA /* KTThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A892517F293B200249FAA /* KTThumbView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F8A892F17F2940500249FAA /* PhotoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A892E17F2940500249FAA /* PhotoDataSource.m */; };
+		5F8A893717F2A65400249FAA /* KTPhotoView+SDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A893417F2A59D00249FAA /* KTPhotoView+SDWebImage.m */; };
 		5F9C6DF717F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C6DF517F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m */; };
 		5F9C6DF817F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F9C6DF617F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib */; };
 		E70FF4AF17D3718000253F32 /* CommentVO.m in Sources */ = {isa = PBXBuildFile; fileRef = E70FF4AE17D3718000253F32 /* CommentVO.m */; };
@@ -521,13 +530,6 @@
 		E7C02E7A17DE696E00EC6E7D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C020DC17D9006500EC6E7D /* ImageIO.framework */; };
 		E7C02E7B17DE697800EC6E7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C020DA17D9005B00EC6E7D /* MapKit.framework */; };
 		E7C02E8D17DF869000EC6E7D /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7C02E7F17DF869000EC6E7D /* KTPhotoBrowser.bundle */; };
-		E7C02E8E17DF869000EC6E7D /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8217DF869000EC6E7D /* KTPhotoBrowserGlobal.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E8F17DF869000EC6E7D /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8417DF869000EC6E7D /* KTPhotoScrollViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E9017DF869000EC6E7D /* KTPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8617DF869000EC6E7D /* KTPhotoView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E9117DF869000EC6E7D /* KTThumbsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8817DF869000EC6E7D /* KTThumbsView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E9217DF869000EC6E7D /* KTThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8A17DF869000EC6E7D /* KTThumbsViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E9317DF869000EC6E7D /* KTThumbView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E8C17DF869000EC6E7D /* KTThumbView.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		E7C02E9917DF88D800EC6E7D /* SDWebImageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C02E9817DF88D600EC6E7D /* SDWebImageDataSource.m */; };
 		E7C2249F17C53687009969BC /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C2249E17C53687009969BC /* CommentCell.m */; };
 		E7C224D317C60C24009969BC /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C224B317C60C24009969BC /* Emoji.m */; };
 		E7C224D417C60C24009969BC /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C224B517C60C24009969BC /* EmojiEmoticons.m */; };
@@ -583,7 +585,6 @@
 		E7DD7EC517B77CDB00F735AD /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DD7EC417B77CDB00F735AD /* SettingViewController.m */; };
 		E7EDF46417B4B04F0021FB04 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EDF46317B4B04F0021FB04 /* NSString.m */; };
 		E7EDF46C17B668780021FB04 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EDF46B17B668780021FB04 /* UIKit.framework */; };
-		E7F3039117DF9BEA007EF801 /* PhotoView+SDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F3039017DF9BEA007EF801 /* PhotoView+SDWebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -655,6 +656,26 @@
 		5F408CB417EF049C008B1B78 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		5F408CBF17EF0896008B1B78 /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
 		5F408CC017EF0896008B1B78 /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
+		5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KTPhotoBrowser.bundle; sourceTree = "<group>"; };
+		5F8A891917F293B200249FAA /* KTPhotoBrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserDataSource.h; sourceTree = "<group>"; };
+		5F8A891A17F293B200249FAA /* KTPhotoBrowserGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserGlobal.h; sourceTree = "<group>"; };
+		5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTPhotoBrowserGlobal.m; sourceTree = "<group>"; };
+		5F8A891C17F293B200249FAA /* KTPhotoScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoScrollViewController.h; sourceTree = "<group>"; };
+		5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTPhotoScrollViewController.m; sourceTree = "<group>"; };
+		5F8A891E17F293B200249FAA /* KTPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoView.h; sourceTree = "<group>"; };
+		5F8A891F17F293B200249FAA /* KTPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTPhotoView.m; sourceTree = "<group>"; };
+		5F8A892017F293B200249FAA /* KTThumbsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTThumbsView.h; sourceTree = "<group>"; };
+		5F8A892117F293B200249FAA /* KTThumbsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTThumbsView.m; sourceTree = "<group>"; };
+		5F8A892217F293B200249FAA /* KTThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTThumbsViewController.h; sourceTree = "<group>"; };
+		5F8A892317F293B200249FAA /* KTThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTThumbsViewController.m; sourceTree = "<group>"; };
+		5F8A892417F293B200249FAA /* KTThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTThumbView.h; sourceTree = "<group>"; };
+		5F8A892517F293B200249FAA /* KTThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTThumbView.m; sourceTree = "<group>"; };
+		5F8A892D17F2940500249FAA /* PhotoDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDataSource.h; sourceTree = "<group>"; };
+		5F8A892E17F2940500249FAA /* PhotoDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDataSource.m; sourceTree = "<group>"; };
+		5F8A893317F2A59D00249FAA /* KTPhotoView+SDWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KTPhotoView+SDWebImage.h"; sourceTree = "<group>"; };
+		5F8A893417F2A59D00249FAA /* KTPhotoView+SDWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KTPhotoView+SDWebImage.m"; sourceTree = "<group>"; };
+		5F8A893517F2A59D00249FAA /* KTThumbView+SDWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KTThumbView+SDWebImage.h"; sourceTree = "<group>"; };
+		5F8A893617F2A59D00249FAA /* KTThumbView+SDWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KTThumbView+SDWebImage.m"; sourceTree = "<group>"; };
 		5F9C6DF417F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserNameOrPasswordViewController.h; sourceTree = "<group>"; };
 		5F9C6DF517F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditUserNameOrPasswordViewController.m; sourceTree = "<group>"; };
 		5F9C6DF617F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUserNameOrPasswordViewController.xib; sourceTree = "<group>"; };
@@ -1394,10 +1415,6 @@
 		E7C02E8A17DF869000EC6E7D /* KTThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTThumbsViewController.m; sourceTree = "<group>"; };
 		E7C02E8B17DF869000EC6E7D /* KTThumbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTThumbView.h; sourceTree = "<group>"; };
 		E7C02E8C17DF869000EC6E7D /* KTThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTThumbView.m; sourceTree = "<group>"; };
-		E7C02E9717DF88D500EC6E7D /* SDWebImageDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDataSource.h; sourceTree = "<group>"; };
-		E7C02E9817DF88D600EC6E7D /* SDWebImageDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDataSource.m; sourceTree = "<group>"; };
-		E7C02E9C17DF892500EC6E7D /* KTThumbView+SDWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KTThumbView+SDWebImage.h"; sourceTree = "<group>"; };
-		E7C02E9D17DF892700EC6E7D /* KTThumbView+SDWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "KTThumbView+SDWebImage.m"; sourceTree = "<group>"; };
 		E7C2249D17C53687009969BC /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		E7C2249E17C53687009969BC /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		E7C224B217C60C24009969BC /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
@@ -1488,8 +1505,6 @@
 		E7EDF46217B4B04F0021FB04 /* NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString.h; sourceTree = "<group>"; };
 		E7EDF46317B4B04F0021FB04 /* NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString.m; sourceTree = "<group>"; };
 		E7EDF46B17B668780021FB04 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E7F3038F17DF9BEA007EF801 /* PhotoView+SDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PhotoView+SDWebImage.h"; sourceTree = "<group>"; };
-		E7F3039017DF9BEA007EF801 /* PhotoView+SDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PhotoView+SDWebImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1624,6 +1639,27 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		5F8A891717F293B200249FAA /* KTPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */,
+				5F8A891917F293B200249FAA /* KTPhotoBrowserDataSource.h */,
+				5F8A891A17F293B200249FAA /* KTPhotoBrowserGlobal.h */,
+				5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */,
+				5F8A891C17F293B200249FAA /* KTPhotoScrollViewController.h */,
+				5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */,
+				5F8A891E17F293B200249FAA /* KTPhotoView.h */,
+				5F8A891F17F293B200249FAA /* KTPhotoView.m */,
+				5F8A892017F293B200249FAA /* KTThumbsView.h */,
+				5F8A892117F293B200249FAA /* KTThumbsView.m */,
+				5F8A892217F293B200249FAA /* KTThumbsViewController.h */,
+				5F8A892317F293B200249FAA /* KTThumbsViewController.m */,
+				5F8A892417F293B200249FAA /* KTThumbView.h */,
+				5F8A892517F293B200249FAA /* KTThumbView.m */,
+			);
+			path = KTPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		E742477117A6107A00F5B47F /* MyIntroductionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1710,6 +1746,7 @@
 		E760858917C13A16003D14F4 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5F8A891717F293B200249FAA /* KTPhotoBrowser */,
 				E760858A17C13A1C003D14F4 /* active_page_image.png */,
 				E760858B17C13A1C003D14F4 /* active_page_image@2x.png */,
 				E760858C17C13A1C003D14F4 /* backFace.png */,
@@ -2183,14 +2220,14 @@
 		E79FEDB017BD1301007F9C18 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
-				E7C02E9C17DF892500EC6E7D /* KTThumbView+SDWebImage.h */,
-				E7C02E9D17DF892700EC6E7D /* KTThumbView+SDWebImage.m */,
-				E7F3038F17DF9BEA007EF801 /* PhotoView+SDWebImage.h */,
-				E7F3039017DF9BEA007EF801 /* PhotoView+SDWebImage.m */,
-				E7C02E9717DF88D500EC6E7D /* SDWebImageDataSource.h */,
-				E7C02E9817DF88D600EC6E7D /* SDWebImageDataSource.m */,
+				5F8A892D17F2940500249FAA /* PhotoDataSource.h */,
+				5F8A892E17F2940500249FAA /* PhotoDataSource.m */,
 				E76083CC17C0E985003D14F4 /* AdvertisementView.h */,
 				E76083CD17C0E985003D14F4 /* AdvertisementView.m */,
+				5F8A893317F2A59D00249FAA /* KTPhotoView+SDWebImage.h */,
+				5F8A893417F2A59D00249FAA /* KTPhotoView+SDWebImage.m */,
+				5F8A893517F2A59D00249FAA /* KTThumbView+SDWebImage.h */,
+				5F8A893617F2A59D00249FAA /* KTThumbView+SDWebImage.m */,
 				E79FEDB117BD1359007F9C18 /* TopicCell.h */,
 				E79FEDB217BD1359007F9C18 /* TopicCell.m */,
 				E79FEDB317BD1359007F9C18 /* WeiBoViewController.h */,
@@ -3584,6 +3621,7 @@
 				E72FCCEC17E369DC004DCA10 /* blueBg.png in Resources */,
 				5F9C6DF817F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib in Resources */,
 				42F3326317F2813000EDBCDB /* more.png in Resources */,
+				5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3594,6 +3632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8A893717F2A65400249FAA /* KTPhotoView+SDWebImage.m in Sources */,
 				E78B6751178AB6DD0006A110 /* main.m in Sources */,
 				E78B6781178AB75F0006A110 /* AppDelegate.m in Sources */,
 				E78B6795178AB7770006A110 /* RequestLinkUtil.m in Sources */,
@@ -3837,14 +3876,6 @@
 				E7C02E7717DE694E00EC6E7D /* SDWebImagePrefetcher.m in Sources */,
 				E7C02E7817DE694E00EC6E7D /* UIButton+WebCache.m in Sources */,
 				E7C02E7917DE694E00EC6E7D /* UIImageView+WebCache.m in Sources */,
-				E7C02E8E17DF869000EC6E7D /* KTPhotoBrowserGlobal.m in Sources */,
-				E7C02E8F17DF869000EC6E7D /* KTPhotoScrollViewController.m in Sources */,
-				E7C02E9017DF869000EC6E7D /* KTPhotoView.m in Sources */,
-				E7C02E9117DF869000EC6E7D /* KTThumbsView.m in Sources */,
-				E7C02E9217DF869000EC6E7D /* KTThumbsViewController.m in Sources */,
-				E7C02E9317DF869000EC6E7D /* KTThumbView.m in Sources */,
-				E7C02E9917DF88D800EC6E7D /* SDWebImageDataSource.m in Sources */,
-				E7F3039117DF9BEA007EF801 /* PhotoView+SDWebImage.m in Sources */,
 				E7B32DF317E2FB37006A44A5 /* ShieldingCell.m in Sources */,
 				E7B32DF617E3034D006A44A5 /* PosterVO.m in Sources */,
 				E7BB1ABA17E8CC17001344DB /* UserLocalInfo.m in Sources */,
@@ -3884,6 +3915,13 @@
 				5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */,
 				5F408CC117EF0896008B1B78 /* WZUser.m in Sources */,
 				5F9C6DF717F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m in Sources */,
+				5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */,
+				5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */,
+				5F8A892917F293B200249FAA /* KTPhotoView.m in Sources */,
+				5F8A892A17F293B200249FAA /* KTThumbsView.m in Sources */,
+				5F8A892B17F293B200249FAA /* KTThumbsViewController.m in Sources */,
+				5F8A892C17F293B200249FAA /* KTThumbView.m in Sources */,
+				5F8A892F17F2940500249FAA /* PhotoDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
