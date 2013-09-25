@@ -28,14 +28,19 @@
 {
     [super viewDidLoad];
     self.userName.text = self.user.loginId;
-    self.password.text = self.user.password;
+    //self.password.text = self.user.password;
     self.password.secureTextEntry = YES ;
     self.userName.textColor = [UIColor blackColor];
     self.password.textColor = [UIColor blackColor];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
      [self.view addSubview:HUD];
     
-    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"保存"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(commit:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+
     self.userName.delegate = self;
     self.password.delegate = self;
     
@@ -59,6 +64,7 @@
         [self.userName resignFirstResponder];
         [self.password resignFirstResponder];
         if ([self.userName.text isEqualToString:self.user.loginId] && [self.password.text isEqualToString:self.user.password] ) {
+            [[[UIAlertView alloc] initWithTitle:@"提示" message:@"您的密码与原密码相同！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
             return;
         }else{
             NSString *url = [SERVER_DEFAULT_ADDRESS stringByAppendingString:@"/m/user/userModify.do"];

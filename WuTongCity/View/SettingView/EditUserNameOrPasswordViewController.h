@@ -15,10 +15,6 @@ MBProgressHUD *HUD;
 }
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *password;
-- (IBAction)reset:(id)sender;
-
-- (IBAction)commit:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *commitButton;
 
 @property (nonatomic,strong) WZUser *user;
 @end
