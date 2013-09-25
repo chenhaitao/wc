@@ -210,6 +210,8 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 - (void)viewWillAppear:(BOOL)animated 
 {
    [super viewWillAppear:animated];
+    
+    [self hideChrome];
    
    // The first time the view appears, store away the previous controller's values so we can reset on pop.
    UINavigationBar *navbar = [[self navigationController] navigationBar];
