@@ -156,7 +156,13 @@
     for (int i = 0;i<[slideImages count];i++)
     {
         PosterVO *posterVO = [slideImages objectAtIndex:i];
-        NSString *ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",posterVO.imageName];
+        NSString *ulrString;
+        if (posterVO.imageName.length == 0) {
+            ulrString=@"http://v2.wutongyi.com/skin/default/images/defaultVillagePicture.png";
+        }else{
+            ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",posterVO.imageName];
+        }
+        
         NSURL *url=[NSURL URLWithString:ulrString];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
         UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
@@ -176,7 +182,13 @@
     }
     // 取数组最后一张图片 放在第0页
     PosterVO *pvo = [slideImages lastObject];
-    NSString *ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+   // NSString *ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+    NSString *ulrString;
+    if (pvo.imageName.length == 0) {
+        ulrString=@"http://v2.wutongyi.com/skin/default/images/defaultVillagePicture.png";
+    }else{
+        ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+    }
     NSURL *url=[NSURL URLWithString:ulrString];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
     UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
@@ -189,7 +201,13 @@
     
     // 取数组第一张图片 放在最后1页
     pvo = [slideImages objectAtIndex:0];
-    ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+//    ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+//    NSString *ulrString;
+    if (pvo.imageName.length == 0) {
+        ulrString=@"http://v2.wutongyi.com/skin/default/images/defaultVillagePicture.png";
+    }else{
+        ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
+    }
     url=[NSURL URLWithString:ulrString];
     imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
     tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
