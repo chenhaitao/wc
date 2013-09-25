@@ -410,10 +410,8 @@
         if (praises > 0 ) {//失败
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"您已经赞过该邻居说" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
                 [alert show];
-        }else{
-            [self loadData];//重新读取数据
         }
-        
+        [self loadData];//重新读取数据
     }];
     [praisesReq setFailedBlock:^{
 //        NSError *error = [praisesReq error];
