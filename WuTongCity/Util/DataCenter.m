@@ -77,7 +77,7 @@ static DataCenter *sharedDataCenter = nil;
     self.accList = [[NSMutableArray alloc] init];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:@"accList"]) {
-        self.accList = [userDefaults objectForKey:@"accList"];
+        self.accList = [NSMutableArray arrayWithArray:[userDefaults objectForKey:@"accList"]];
         
         BOOL haveAccount = NO;
         for (NSDictionary *dict in self.accList) {
