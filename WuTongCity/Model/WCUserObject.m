@@ -88,7 +88,8 @@
     };
     [WCUserObject checkTableCreatedInDb:db];
     BOOL worked=[db executeUpdate:@"delete from wcUser"];
-    
+    UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"邻居说" message:@"聊天记录已清除" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [av show];
     return worked;
 }
 

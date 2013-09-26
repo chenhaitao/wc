@@ -141,7 +141,9 @@
             //删除文件
             [fileMgr removeItemAtPath:[diskCachePath stringByAppendingPathComponent:fileName] error:nil];           
         }
-    }    
+    }
+    UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"邻居说" message:@"图片缓存已清除" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil];
+    [av show];
 }
 
 -(void)getSwitchValue:(UISwitch *) _switch{
