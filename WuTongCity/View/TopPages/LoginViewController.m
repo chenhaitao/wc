@@ -303,10 +303,12 @@
     if ([reqDict objectForKey:LOGIN_ID]) {
         isLogin = NO;//注册
         //发送登录请求
+        
         ASIFormDataRequest *loginReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:USER_LOGIN_URL]]];
         [loginReq setPostValue:[reqDict objectForKey:LOGIN_ID] forKey:LOGIN_ID];//账号
         [loginReq setPostValue:[MD5 md5:DEFAULT_USER_PASSWORD] forKey:LOGIN_PASSWORD];//密码
         [loginReq setPostValue:IPHONE forKey:LOGIN_TYPE];//访问类型
+         [loginReq setPostValue:[DataCenter sharedInstance].village.uuid forKey:@"villageId"];
         [loginReq setDelegate:self];
         [loginReq setDidFinishSelector:@selector(loginSuccess:)];
         [loginReq setDidFailSelector:@selector(requestError:)];
