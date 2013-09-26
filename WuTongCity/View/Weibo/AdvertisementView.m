@@ -70,15 +70,29 @@
 -(void) updateAvatar{
     NSString *avatarName = [DataCenter sharedInstance].userVO.avatar;
     NSString *avatarString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",avatarName];
+    
+     if([avatarString hasSuffix:@"uuid="])
+     {
+         [self.avatarBtn setBackgroundImage:[UIImage imageNamed:@"defAvatar.png"] forState:UIControlStateNormal];
+     }
+    else
+    {
+    
     NSURL *avatarUrl=[NSURL URLWithString:avatarString];
     UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake(240,170,70,70)];
+    [tempView setImage:[UIImage imageNamed:@"defAvatar.png"]];
     [tempView setImageWithURL:avatarUrl
-             placeholderImage:[UIImage imageNamed:@"defAvatar"]
+             placeholderImage:[UIImage imageNamed:@"defAvatar.png"]
                       success:^(UIImage *image){
                           [self.avatarBtn setBackgroundImage:image forState:UIControlStateNormal];
                           [self.avatarBtn setBackgroundImage:image forState:UIControlStateHighlighted];
+                          
                       }
-                      failure:^(NSError *error){}];
+                      failure:^(NSError *error){
+                          NSLog(@"error");
+                      
+                      }];
+    }
 }
 
 
