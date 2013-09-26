@@ -178,22 +178,22 @@
         }
         
         NSURL *url=[NSURL URLWithString:ulrString];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
-        UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
-        [tempView setImageWithURL:url
-                 placeholderImage:[UIImage imageNamed:@"defAvatar"]
-                          success:^(UIImage *image){
-                              [imageView setImage:image];
-                          }
-                          failure:^(NSError *error){}];
-        [scrollView addSubview:imageView]; // 首页是第0页,默认从第1页开始的。所以+320。。。
+        UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
+        UIImageView *tempView1= [[UIImageView alloc] initWithFrame:CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT)];
+//        [tempView1 setImageWithURL:url
+//                 placeholderImage:[UIImage imageNamed:@"defAvatar"]
+//                          success:^(UIImage *image){
+//                              [imageView1 setImage:image];
+//                          }
+//                          failure:^(NSError *error){
+//                              NSLog(@"fail");
+//                          }];
+        [imageView1 setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defAvatar"]];
+        [scrollView addSubview:imageView1]; // 首页是第0页,默认从第1页开始的。所以+320。。。
         
         
-        
-//        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[slideImages objectAtIndex:i]]];
-//        imageView.frame = CGRectMake((320 * i) + 320, 0, 320, SCROLLVIEW_HEIGHT);
-//        [scrollView addSubview:imageView]; // 首页是第0页,默认从第1页开始的。所以+320。。。
     }
+    
     // 取数组最后一张图片 放在第0页
     PosterVO *pvo = [slideImages lastObject];
    // NSString *ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
@@ -204,14 +204,14 @@
         ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
     }
     NSURL *url=[NSURL URLWithString:ulrString];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
-    UIImageView *tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
-    [tempView setImageWithURL:url
+    UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
+    UIImageView *tempView2 = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
+    [tempView2 setImageWithURL:url
                       success:^(UIImage *image){
-                          [imageView setImage:image];
+                          [imageView2 setImage:image];
                       }
                       failure:^(NSError *error){}];
-    [scrollView addSubview:imageView]; // 首页是第0页,默认从第1页开始的。所以+320。。。
+    [scrollView addSubview:imageView2]; // 首页是第0页,默认从第1页开始的。所以+320。。。
     
     // 取数组第一张图片 放在最后1页
     pvo = [slideImages objectAtIndex:0];
@@ -223,14 +223,14 @@
         ulrString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",pvo.imageName];
     }
     url=[NSURL URLWithString:ulrString];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
-    tempView = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
-    [tempView setImageWithURL:url
+    UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
+    UIImageView *tempView3 = [[UIImageView alloc] initWithFrame:CGRectMake((320 * ([slideImages count] + 1)) , 0, 320, SCROLLVIEW_HEIGHT)];
+    [tempView3 setImageWithURL:url
                       success:^(UIImage *image){
-                          [imageView setImage:image];
+                          [imageView3 setImage:image];
                       }
                       failure:^(NSError *error){}];
-    [scrollView addSubview:imageView]; // 首页是第0页,默认从第1页开始的。所以+320。。。
+    [scrollView addSubview:imageView3]; // 首页是第0页,默认从第1页开始的。所以+320。。。
     
     
 //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[slideImages objectAtIndex:([slideImages count]-1)]]];

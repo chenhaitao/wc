@@ -466,7 +466,7 @@
     //发送微博列表请求
     
     NSString *url = [RequestLinkUtil getUrlByKey:PUBLIC_BLOG_LIST];
-    url = [url stringByAppendingFormat:@"?currentVillage=%@", [DataCenter sharedInstance].village.uuid];
+  //  url = [url stringByAppendingFormat:@"?currentVillage=%@", [DataCenter sharedInstance].village.uuid];
     weiboReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
     [weiboReq setPostValue:[NSString stringWithFormat:@"%d",pageNo] forKey:@"pageNo"];//
     NSLog(@"%d",pageNo);
