@@ -127,7 +127,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"删除纪录";
+    return @"删除记录";
 }
 
 -(void) reloadAccountList{
