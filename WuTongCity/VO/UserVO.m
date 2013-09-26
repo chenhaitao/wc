@@ -21,6 +21,7 @@
 @synthesize signature;//个性签名
 @synthesize realName;//真实姓名
 @synthesize realNamePrivacy;
+@synthesize birthdayPrivacy;
 @synthesize certified;//认证状态
 @synthesize createTime;//创建时间
 @synthesize employer;//工作单位
@@ -134,6 +135,7 @@
         }else{
             self.birthday = @"";
         }
+        self.birthdayPrivacy = [[userPersonalityDict objectForKey:@"birthDayPrivacy"] intValue];
         self.userResidenceId = [userResidencesDict objectForKey:@"uuid"];
         self.residencePrivacy = [[userPersonalityDict objectForKey:@"residencePrivacy"] intValue];
         self.residenceId = [residenceDict objectForKey:@"uuid"];

@@ -21,7 +21,7 @@
 }
 
 @property (strong,nonatomic) UserVO *userVO;
-
+@property (strong, nonatomic) NSMutableArray *birthArray;
 
 - (id)initWithUserVO:(UserVO *)_userVO;
 

@@ -20,7 +20,10 @@
     self = [super init];
     if (self) {
         self.userVO = _userVO;
-        
+        self.birthArray = [[NSMutableArray alloc]init];
+        [self.birthArray addObject:self.userVO.birthday];
+        [self.birthArray addObject:ISSHOW];
+
         // Custom initialization
     }
     return self;
@@ -82,7 +85,7 @@
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.birthArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * tableIdentifier=@"EditUserBirthdayCell";
@@ -94,6 +97,19 @@
         
     }
 
+    NSString *value = [self.birthArray objectAtIndex:[indexPath row]];
+    if ([value isEqualToString:ISSHOW]) {
+        cell.textLabel.text = ISSHOW;
+        
+        //创建开关控件
+        UISwitch *isShow= [[UISwitch alloc] initWithFrame:CGRectMake(210, 10, 80, 20)];
+        BOOL show = self.userVO.birthdayPrivacy;
+        isShow.on = !show;
+        [isShow addTarget:self action:@selector(getSwitchValue:) forControlEvents:UIControlEventValueChanged];
+        
+        [cell.contentView addSubview:isShow];
+        
+    }else{
     userBirthdayTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 10, 280, 20)];
     [userBirthdayTextField becomeFirstResponder];//默认一直打开键盘
     //[userBirthdayTextField setBorderStyle:UITextBorderStyleNone]; //外框类型
@@ -121,7 +137,7 @@
         NSDate *d = [DateUtil dateFromString:self.userVO.birthday format:@"yyyy年MM月d日"];
         [datePicker setDate:d];
     }
-    
+    }
     
     
 
@@ -180,5 +196,33 @@
     [av show];
 }
 
+-(void)getSwitchValue:(UISwitch *) _switch{
+    
+    //1:设置隐私  2:取消隐私
+    NSLog(@"switch ison :%d",!_switch.isOn);
+    //yes:1 no:0
+    [self setBirthdayPrivacy:!_switch.isOn];
+    
+}
 
+
+//设置隐私
+-(void) setBirthdayPrivacy:(int)_privacy{
+    NSURL *url = [NSURL URLWithString:[RequestLinkUtil getUrlByKey:PERSONALITY_MODIFY]];
+    ASIFormDataRequest *birthdayPrivacyReq = [ASIFormDataRequest requestWithURL:url];
+    [birthdayPrivacyReq setPostValue:[NSString stringWithFormat:@"%d",_privacy] forKey:@"frf.UserPersonality.birthdayPrivacy"];
+    [birthdayPrivacyReq setPostValue:[DataCenter sharedInstance].userVO.userPersonalityId forKey:@"frf.UserPersonality.uuid"];
+    [birthdayPrivacyReq setCompletionBlock:^{
+        NSLog(@"%@",[birthdayPrivacyReq responseString]);
+        [DataCenter sharedInstance].userVO.birthdayPrivacy = _privacy;
+        //        [HUD hide:YES];
+    }];
+    [birthdayPrivacyReq setFailedBlock:^{
+        UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"服务器异常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [av show];
+        //        [HUD hide:YES];
+    }];
+    [birthdayPrivacyReq startAsynchronous];
+    //    [HUD show:YES];
+}
 @end

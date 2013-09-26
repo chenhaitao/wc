@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSString *mobile;//用户电话
 @property (assign, nonatomic) int mobilePrivacy;
 @property (strong, nonatomic) NSString *birthday;//生日
+@property (assign, nonatomic) int *birthdayPrivacy;//生日
 @property (strong, nonatomic) NSString *album;//相册
 @property (strong, nonatomic) NSString *villageId;//小区id
 @property (assign, nonatomic) int residencePrivacy;
