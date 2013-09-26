@@ -211,7 +211,7 @@ const CGFloat ktkDefaultToolbarHeight = 44;
 {
    [super viewWillAppear:animated];
     
-    [self hideChrome];
+    
    
    // The first time the view appears, store away the previous controller's values so we can reset on pop.
    UINavigationBar *navbar = [[self navigationController] navigationBar];
@@ -233,6 +233,16 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    [self setTitleWithCurrentPhotoIndex];
    [self toggleNavButtons];
    [self startChromeDisplayTimer];
+    
+//    [self hideChrome];
+//    toolbar_.hidden = YES;
+//    [self toggleChromeDisplay];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self hideChrome];
 }
 
 - (void)viewWillDisappear:(BOOL)animated 
@@ -303,6 +313,8 @@ const CGFloat ktkDefaultToolbarHeight = 44;
    CGRect pageFrame = bounds;
    pageFrame.size.width -= (2 * PADDING);
    pageFrame.origin.x = (bounds.size.width * index) + PADDING;
+    pageFrame.size.height = [UIScreen mainScreen].bounds.size.height;
+    NSLog(@"frame = %@",NSStringFromCGRect(pageFrame));
    return pageFrame;
 }
 
