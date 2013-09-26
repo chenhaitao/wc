@@ -101,9 +101,8 @@
 
 -(id) initLoginUserWithDict:(NSDictionary *)dict loginId:(NSString *)_loginId password:(NSString *)_password{
     if (self = [super init]) {
-        
-        self.loginId = _loginId;
-        self.password = _password;
+        self.loginId = [dict objectForKey:@"loginId"];
+        self.password = [dict objectForKey:@"loginPassword"];
         //用户个性化设置字典
         NSArray *userPersonalityArray = [dict objectForKey:@"userPersonality"];
         NSDictionary*userPersonalityDict = [userPersonalityArray objectAtIndex:0];//个性化设置信息

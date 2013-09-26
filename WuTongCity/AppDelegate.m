@@ -10,8 +10,14 @@
 #import "SelectVillagelViewController.h"
 #import "MD5.h"
 #import "TableBarViewController.h"
+#import "SelectVillagelViewController.h"
 
 @implementation AppDelegate
+
+
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +29,29 @@
     //add
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"addData.sqlite"];
     
+    NSArray *users =[WZUser   MR_findAllSortedBy:@"loginTime" ascending:YES];
+    if (users.count > 0) {
+        WZUser *user = [users objectAtIndex:0];
+        BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
+        if (user.loginId.length >0 && user.password.length >0 && flag) {
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:user.loginId,@"loginId",user.password,@"password",user.villageId,@"villageId", nil];
+            [self login:dic];
+        }else{
+            SelectVillagelViewController *controller = [[SelectVillagelViewController alloc] init];
+            UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:controller];
+            navCtrl.navigationBar.barStyle = UIBarStyleBlack;
+            self.window.rootViewController = navCtrl;
+        }
+    }else{
+        SelectVillagelViewController *controller = [[SelectVillagelViewController alloc] init];
+        UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:controller];
+        navCtrl.navigationBar.barStyle = UIBarStyleBlack;
+        self.window.rootViewController = navCtrl;
+    }
+    [self.window makeKeyAndVisible];
+    
     //是否自动登录
-    BOOL autoLogin = YES;
+   /* BOOL autoLogin = YES;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSLog(@"%d",[userDefaults boolForKey:@"autoLogin"]);
     if([userDefaults boolForKey:@"autoLogin"] || (![userDefaults boolForKey:@"autoLogin"])){
@@ -59,7 +86,7 @@
         self.window.rootViewController = navCtrl;
         [self.window makeKeyAndVisible];
     }
-    
+    */
 
     // 监测网络情况
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -91,7 +118,7 @@
     //发送登录请求
     ASIFormDataRequest *autologinReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:USER_LOGIN_URL]]];
     [autologinReq setPostValue:[_dict objectForKey:@"loginId"] forKey:@"loginId"];//账号
-    [autologinReq setPostValue:[MD5 md5:[_dict objectForKey:@"password"]] forKey:@"loginPassword"];//密码
+    [autologinReq setPostValue:[_dict objectForKey:@"password"] forKey:@"loginPassword"];//密码
     [autologinReq setPostValue:IPHONE forKey:LOGIN_TYPE];//访问类型
     [autologinReq setPostValue:[_dict objectForKey:@"villageId"] forKey:@"villageId"];
     [autologinReq setDelegate:self];
@@ -101,7 +128,22 @@
             NSDictionary*userInfoDict = [reqDict objectForKey:@"userInfo"];
             //初始化用户信息
             UserVO *userVO = [[UserVO alloc] initLoginUserWithDict:userInfoDict loginId:[_dict objectForKey:@"loginId"] password:[_dict objectForKey:@"password"]];
+            //add
+            NSDictionary *dic = [userInfoDict objectForKey:@"account"];
+            if (userVO.loginId.length == 0) {
+                userVO.loginId = [dic objectForKey:@"loginId"];
+                userVO.password = [dic objectForKey:@"loginPassword"];
+                
+            }
             [DataCenter sharedInstance].userVO = userVO;//放入数据中心
+           
+            Village *village = [Village new];
+            NSArray *userResidences = [userInfoDict objectForKey:@"userResidences"];
+            NSDictionary *villagedic = [ [userResidences lastObject] objectForKey:@"village"];
+            village.uuid = [villagedic objectForKey:@"uuid"];
+            village.name = [villagedic objectForKey:@"name"];
+            [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
+            
             [[DataCenter sharedInstance] setLocalAccount];//登录后设置本地账号
             
             
@@ -123,6 +165,10 @@
         }else{
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"登陆失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
+                SelectVillagelViewController *controller = [[SelectVillagelViewController alloc] init];
+                UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:controller];
+                navCtrl.navigationBar.barStyle = UIBarStyleBlack;
+                self.window.rootViewController = navCtrl;
             
         }
     }];

@@ -174,18 +174,14 @@
     Village *village = [section objectAtIndex:[indexPath row]];
     [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
     
+    NSArray *us = [WZUser MR_findAll];
+    for (WZUser *u in us) {
+        NSLog(@"%@,%@,%@,%@",u.loginId,u.password,u.villageId,village.uuid);
+    }
     NSArray *users =[WZUser   MR_findByAttribute:@"villageId" withValue:village.uuid ];
      WZUser *user = [users lastObject];
     BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
     if (user.loginId.length >0 && user.password.length >0 && flag) {
-        /*
-         [loginReq setPostValue:[_dict objectForKey:@"loginId"] forKey:@"loginId"];//账号
-         [loginReq setPostValue:[MD5 md5:[_dict objectForKey:@"password"]] forKey:@"loginPassword"];//密码
-         [loginReq setPostValue:IPHONE forKey:LOGIN_TYPE];//访问类型
-         [loginReq setPostValue:[_dict objectForKey:@"villageId"] forKey:@"villageId"];
-         */
-        
-       
         NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:user.loginId,@"loginId",user.password,@"password",user.villageId,@"villageId", nil];
         [self login:dic];
     }else{
@@ -332,7 +328,7 @@
     //发送登录请求
     ASIFormDataRequest *loginReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:USER_LOGIN_URL]]];
     [loginReq setPostValue:[_dict objectForKey:@"loginId"] forKey:@"loginId"];//账号
-    [loginReq setPostValue:[MD5 md5:[_dict objectForKey:@"password"]] forKey:@"loginPassword"];//密码
+    [loginReq setPostValue:[_dict objectForKey:@"password"] forKey:@"loginPassword"];//密码
     [loginReq setPostValue:IPHONE forKey:LOGIN_TYPE];//访问类型
     [loginReq setPostValue:[_dict objectForKey:@"villageId"] forKey:@"villageId"];
     [loginReq setDelegate:self];
@@ -342,7 +338,21 @@
             NSDictionary*userInfoDict = [reqDict objectForKey:@"userInfo"];
             //初始化用户信息
             UserVO *userVO = [[UserVO alloc] initLoginUserWithDict:userInfoDict loginId:[_dict objectForKey:@"loginId"] password:[_dict objectForKey:@"password"]];
+            //add
+            NSDictionary *dic = [userInfoDict objectForKey:@"account"];
+            if (userVO.loginId.length == 0) {
+                userVO.loginId = [dic objectForKey:@"loginId"];
+                userVO.password = [dic objectForKey:@"loginPassword"];
+            }
             [DataCenter sharedInstance].userVO = userVO;//放入数据中心
+         
+            Village *village = [Village new];
+            NSArray *userResidences = [userInfoDict objectForKey:@"userResidences"];
+            NSDictionary *villagedic = [ [userResidences lastObject] objectForKey:@"village"];
+            village.uuid = [villagedic objectForKey:@"uuid"];
+            village.name = [villagedic objectForKey:@"name"];
+            [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
+            
             [[DataCenter sharedInstance] setLocalAccount];//登录后设置本地账号
             
             

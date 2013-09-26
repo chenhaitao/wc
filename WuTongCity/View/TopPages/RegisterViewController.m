@@ -462,6 +462,14 @@
         //初始化用户信息
         UserVO *userVO = [[UserVO alloc] initLoginUserWithDict:userInfoDict loginId:userNameText.text password:userPassWordText.text];
         [DataCenter sharedInstance].userVO = userVO;//放入数据中心
+        
+        Village *village = [Village new];
+        NSArray *userResidences = [userInfoDict objectForKey:@"userResidences"];
+        NSDictionary *villagedic = [ [userResidences lastObject] objectForKey:@"village"];
+        village.uuid = [villagedic objectForKey:@"uuid"];
+        village.name = [villagedic objectForKey:@"name"];
+        [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
+        
         [[DataCenter sharedInstance] setLocalAccount];//登录后设置本地账号
         
         //以用户uuid和账号密码注册openfire服务器
