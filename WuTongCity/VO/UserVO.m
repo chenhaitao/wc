@@ -111,7 +111,6 @@
         NSDictionary *residenceDict = [userResidencesDict objectForKey:@"residence"];//用户门栋号信息
         
         
-        
         self.userId = [dict objectForKey:@"uuid"];
         self.userPersonalityId = [userPersonalityDict objectForKey:@"uuid"];
         self.avatar = [userPersonalityDict objectForKey:@"avatar"];

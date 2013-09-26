@@ -9,6 +9,7 @@
 
 #import "EGORefreshTableView.h"
 #import "AdvertisementView.h"
+#import "CustomStatusBar.h"
 
 
 @interface WeiBoViewController : EGORefreshTableView<MBProgressHUDDelegate> {
@@ -29,6 +30,7 @@
     UIWindow *window;
     
 }
+@property (nonatomic,strong) CustomStatusBar *customStatusBar;
 //
 //@property (strong, nonatomic) ParamButton *avatarBtn;//头像按钮
 //@property (strong, nonatomic) ParamButton *nickNameBtn;//昵称按钮

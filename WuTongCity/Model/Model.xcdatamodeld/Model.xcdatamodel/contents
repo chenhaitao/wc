@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="WZUser" representedClassName="WZUser" syncable="YES">
+        <attribute name="isTempAccount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="loginId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loginTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +10,6 @@
         <attribute name="villageId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="WZUser" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="WZUser" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

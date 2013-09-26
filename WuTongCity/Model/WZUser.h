@@ -2,7 +2,7 @@
 //  WZUser.h
 //  WuTongCity
 //
-//  Created by 陈 海涛 on 13-9-22.
+//  Created by 陈 海涛 on 13-9-26.
 //  Copyright (c) 2013年 alan. All rights reserved.
 //
 
@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSString * userId;
 @property (nonatomic, retain) NSString * villageId;
+@property (nonatomic, retain) NSNumber * isTempAccount;
 
 @end

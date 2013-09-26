@@ -41,6 +41,7 @@
 @property (assign, nonatomic) int isRestrict;//是否限制
 @property (assign, nonatomic) int isShield;//是否屏蔽
 @property (assign, nonatomic) int isStick;//是否置顶
+@property (assign, nonatomic) int isTempAcount;//是否是临时帐户
 @property (strong, nonatomic) NSString *restrictId;//限制id
 @property (strong, nonatomic) NSString *shieldId;//屏蔽id
 @property (strong, nonatomic) NSString *stickId;//置顶id

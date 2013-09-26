@@ -40,7 +40,8 @@
 		5F408CAF17EF034D008B1B78 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9217EF034D008B1B78 /* MagicalRecord+ShorthandSupport.m */; };
 		5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9417EF034D008B1B78 /* MagicalRecord.m */; };
 		5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */; };
-		5F408CC117EF0896008B1B78 /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CC017EF0896008B1B78 /* WZUser.m */; };
+		5F5010AE17F400FB004F6B3B /* CustomStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */; };
+		5F5010B117F40E23004F6B3B /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010B017F40E23004F6B3B /* WZUser.m */; };
 		5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */; };
 		5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
@@ -654,8 +655,10 @@
 		5F408C9517EF034D008B1B78 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		5F408C9617EF034D008B1B78 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		5F408CB417EF049C008B1B78 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		5F408CBF17EF0896008B1B78 /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
-		5F408CC017EF0896008B1B78 /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
+		5F5010AC17F400FB004F6B3B /* CustomStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusBar.h; sourceTree = "<group>"; };
+		5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusBar.m; sourceTree = "<group>"; };
+		5F5010AF17F40E23004F6B3B /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
+		5F5010B017F40E23004F6B3B /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
 		5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KTPhotoBrowser.bundle; sourceTree = "<group>"; };
 		5F8A891917F293B200249FAA /* KTPhotoBrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserDataSource.h; sourceTree = "<group>"; };
 		5F8A891A17F293B200249FAA /* KTPhotoBrowserGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserGlobal.h; sourceTree = "<group>"; };
@@ -1639,6 +1642,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		5F5010AB17F400DB004F6B3B /* customStatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				5F5010AC17F400FB004F6B3B /* CustomStatusBar.h */,
+				5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */,
+			);
+			name = customStatusBar;
+			sourceTree = "<group>";
+		};
 		5F8A891717F293B200249FAA /* KTPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2220,6 +2232,7 @@
 		E79FEDB017BD1301007F9C18 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				5F5010AB17F400DB004F6B3B /* customStatusBar */,
 				5F8A892D17F2940500249FAA /* PhotoDataSource.h */,
 				5F8A892E17F2940500249FAA /* PhotoDataSource.m */,
 				E76083CC17C0E985003D14F4 /* AdvertisementView.h */,
@@ -3238,9 +3251,9 @@
 				E7C226BC17C68A73009969BC /* WCMessageUserUnionObject.m */,
 				E7C226BD17C68A73009969BC /* WCUserObject.h */,
 				E7C226BE17C68A73009969BC /* WCUserObject.m */,
-				5F408CBF17EF0896008B1B78 /* WZUser.h */,
-				5F408CC017EF0896008B1B78 /* WZUser.m */,
 				5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */,
+				5F5010AF17F40E23004F6B3B /* WZUser.h */,
+				5F5010B017F40E23004F6B3B /* WZUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3913,7 +3926,6 @@
 				5F408CAF17EF034D008B1B78 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */,
 				5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */,
-				5F408CC117EF0896008B1B78 /* WZUser.m in Sources */,
 				5F9C6DF717F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.m in Sources */,
 				5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */,
 				5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */,
@@ -3922,6 +3934,8 @@
 				5F8A892B17F293B200249FAA /* KTThumbsViewController.m in Sources */,
 				5F8A892C17F293B200249FAA /* KTThumbView.m in Sources */,
 				5F8A892F17F2940500249FAA /* PhotoDataSource.m in Sources */,
+				5F5010AE17F400FB004F6B3B /* CustomStatusBar.m in Sources */,
+				5F5010B117F40E23004F6B3B /* WZUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

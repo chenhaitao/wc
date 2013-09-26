@@ -57,6 +57,9 @@
     
     moreTitle = @"显示更多";
 
+    
+    self.customStatusBar = [[CustomStatusBar alloc] initWithFrame:CGRectZero];
+    [self.customStatusBar.messageButton setTitle:@"您当前是临时帐户!" forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -67,6 +70,19 @@
     [advertisementView updateAvatar];
 //    [self showRefreshHeader:YES];
     [self loadData];//重新读取数据
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    UserVO *currentUser = [DataCenter sharedInstance].userVO;
+    if (currentUser.isTempAcount  == 0) {
+        [self.customStatusBar hiddenMessage];
+        
+    }else{
+        [self.customStatusBar showMessage];
+    }
 }
 
 
