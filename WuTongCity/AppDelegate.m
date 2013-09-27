@@ -165,6 +165,9 @@
                 
             }else{
                 [[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"登陆失败" delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+                SelectVillagelViewController *select = [[SelectVillagelViewController alloc] init];
+                self.window.rootViewController = select;
+                [self.window makeKeyAndVisible];
             }
         }else{
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"登陆失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
@@ -183,6 +186,9 @@
                                         cancelButtonTitle:@"好的"
                                         otherButtonTitles: nil];
         [av show];
+        SelectVillagelViewController *select = [[SelectVillagelViewController alloc] init];
+        self.window.rootViewController = select;
+        [self.window makeKeyAndVisible];
         
     }];
     [autologinReq startAsynchronous];

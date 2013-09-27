@@ -163,13 +163,15 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [editUserAddressTableView cellForRowAtIndexPath:indexPath];
     if (cell.tag > 0) {
-        if (![DataCenter sharedInstance].userVO.building) {
+        if (cell.tag != 1 && [DataCenter sharedInstance].userVO.building.length == 0) {
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"设置住宅" message:@"请先设置门栋号" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
+            return;
         }
-        else if(![DataCenter sharedInstance].userVO.unit) {
+        else if(cell.tag != 2 &&[DataCenter sharedInstance].userVO.unit.length == 0) {
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"设置住宅" message:@"请先设置单元号" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
+            return;
         }else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             SelectResidenceViewController *selectResidenceViewController;
@@ -215,6 +217,7 @@
 }
 
 -(void) reloadEditUserAddressTableView{
+    
     UserVO *userVO = [DataCenter sharedInstance].userVO;
     
     

@@ -39,7 +39,7 @@
     ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:RESIDENCE_LOAD]]];
     switch (type) {
         case 1:
-            [request setPostValue:@"0" forKey:@"villageId"];
+            [request setPostValue: [DataCenter sharedInstance].village.uuid forKey:@"villageId"];
             break;
         case 2:
             [request setPostValue:[DataCenter sharedInstance].userVO.building forKey:@"building"];
@@ -51,25 +51,18 @@
     }
     [request setDelegate:self];
     [request setCompletionBlock:^{
+       
         if ([request.responseString JSONValue]) {
             NSArray *tempArray = [request.responseString JSONValue];
             residenceArray = [[NSMutableArray alloc] initWithArray:tempArray];
-//            for (int i=0; i<tempArray.count; i++) {
-//                NSString *tempString;
-//                switch (type) {
-//                    case 1:
-//                        tempString = [[tempArray objectAtIndex:i] objectForKey:@"building"];
-//                        break;
-//                    case 2:
-//                        tempString = [[tempArray objectAtIndex:i] objectForKey:@"unit"];
-//                        break;
-//                    case 3:
-//                        tempString = [[tempArray objectAtIndex:i] objectForKey:@"room"];
-//                        [DataCenter sharedInstance].residenceUUID = [[tempArray objectAtIndex:i] objectForKey:@"uuid"];
-//                        break;
-//                }
-//                [residenceArray addObject:tempString];
-//            }
+            NSMutableArray *dete = [NSMutableArray array];
+            for (  NSDictionary *dic in residenceArray) {
+                if ([[dic objectForKey:@"building"] length] < 1) {
+                    [dete addObject:dic];
+                }
+            }
+            [residenceArray removeObjectsInArray:dete];
+            
             [residenceTableView reloadData];
             
         }else{
@@ -102,7 +95,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    CGRect tableFrame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    CGRect tableFrame = CGRectMake(0, 0, self.view.bounds.size.width, [UIScreen mainScreen].bounds.size.height - 20 - 44 );
     residenceTableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStylePlain];
     residenceTableView.dataSource = self;
     residenceTableView.delegate = self;
@@ -129,7 +122,9 @@
                 if ([[dict objectForKey:@"building"] isEqualToString:[DataCenter sharedInstance].userVO.building]) {
                     [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
                 }
-                cell.textLabel.text = [dict objectForKey:@"building"];
+                cell.textLabel.text = [NSString stringWithFormat:@"%i", [[dict objectForKey:@"building"] intValue] ] ;
+                cell.textLabel.textColor = [UIColor blackColor];
+                NSLog(@"building:%@",[dict objectForKey:@"building"]);
                 break;
             case 2:
                 if ([[dict objectForKey:@"unit"] isEqualToString:[DataCenter sharedInstance].userVO.unit]) {
@@ -161,9 +156,12 @@
     switch (type) {
         case 1:
             [DataCenter sharedInstance].userVO.building = cell.textLabel.text;
+            [DataCenter sharedInstance].userVO.unit = nil;
+            [DataCenter sharedInstance].userVO.room = nil;
             break;
         case 2:
             [DataCenter sharedInstance].userVO.unit = cell.textLabel.text;
+            [DataCenter sharedInstance].userVO.room = nil;
             break;
         case 3:
             [DataCenter sharedInstance].userVO.room = cell.textLabel.text;
