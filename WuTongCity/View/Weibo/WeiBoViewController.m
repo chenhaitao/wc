@@ -78,7 +78,7 @@
     [self.view addSubview:self.messageView];
     
     
-    [NSTimer scheduledTimerWithTimeInterval:20 target:self selector:@selector(weiboComment) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(weiboComment) userInfo:nil repeats:YES];
 }
 
 - (void)newCommentAction
