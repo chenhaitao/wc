@@ -62,7 +62,7 @@
     UserVO *userVO = [shieldingArray objectAtIndex:[indexPath row]];
     static NSString * tableIdentifier=@"limitTableViewCell";
     
-    ShieldingCell *cell=[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    ShieldingCell *cell=nil;
     if(cell==nil){
         cell=[[ShieldingCell alloc]initWithUserVO:userVO];
         [cell.shieldingBtn addTarget:self action:@selector(shieldingUser:) forControlEvents:UIControlEventTouchUpInside];//屏蔽
@@ -98,7 +98,7 @@
         ASIFormDataRequest *cancelShieldingReq = [ASIFormDataRequest requestWithURL:url];
         [cancelShieldingReq setPostValue:uvo.shieldId forKey:@"uuid"];
         [cancelShieldingReq setCompletionBlock:^{
-            NSLog(@"%@",[cancelShieldingReq responseString]);
+           
             [self reloadShieldingList];
             [HUD hide:YES];
         }];
@@ -114,8 +114,9 @@
         ASIFormDataRequest *shieldUserReq = [ASIFormDataRequest requestWithURL:url];
         [shieldUserReq setPostValue:uvo.userId forKey:@"userId"];
         [shieldUserReq setCompletionBlock:^{
-            NSLog(@"%@",[shieldUserReq responseString]);
+          
             [self reloadShieldingList];
+            
             [HUD hide:YES];
         }];
         [shieldUserReq setFailedBlock:^{
@@ -145,6 +146,8 @@
             NSArray *arr = [responseDict objectForKey:@"result"];
             for (NSDictionary *dict in arr) {
                 [shieldingArray addObject:[[UserVO alloc] initNeighbourWithDict:dict]];
+                UserVO *user = [[UserVO alloc] initNeighbourWithDict:dict];
+                NSLog(@"name:%@,%i", user.nickName,user.isShield);
             }
             [shieldingTableView reloadData];
         }

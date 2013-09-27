@@ -45,7 +45,10 @@
         
         
         NSString *title = @"限制用户";
-        if (userVO.isRestrict > 0) {
+        if ([userVO.nickName isEqualToString:@"xinyixxfsdfsd"]) {
+            NSLog(@"%i",userVO.isRestrict);
+        }
+        if (userVO.isRestrict != 0) {
             title = @"取消限制";
         }
         self.limitBtn = [[ParamButton alloc]initWithFrame:CGRectMake(240, 10, 70, 30)];

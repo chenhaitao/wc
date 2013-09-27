@@ -66,7 +66,7 @@
     UserVO *userVO = [limitArray objectAtIndex:[indexPath row]];
     static NSString * tableIdentifier=@"limitTableViewCell";
     
-    LimitCell *cell=[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    LimitCell *cell= nil;
     if(cell==nil){
         cell=[[LimitCell alloc]initWithUserVO:userVO];
         [cell.limitBtn addTarget:self action:@selector(limitUser:) forControlEvents:UIControlEventTouchUpInside];//查看评论
@@ -100,7 +100,7 @@
         ASIFormDataRequest *cancelLimitUserReq = [ASIFormDataRequest requestWithURL:url];
         [cancelLimitUserReq setPostValue:uvo.restrictId forKey:@"uuid"];
         [cancelLimitUserReq setCompletionBlock:^{
-            NSLog(@"%@",[cancelLimitUserReq responseString]);
+          
             [self reloadLimitList];
             [HUD hide:YES];
         }];
@@ -116,7 +116,7 @@
         ASIFormDataRequest *limitUserReq = [ASIFormDataRequest requestWithURL:url];
         [limitUserReq setPostValue:uvo.userId forKey:@"userId"];
         [limitUserReq setCompletionBlock:^{
-            NSLog(@"%@",[limitUserReq responseString]);
+           
             [self reloadLimitList];
             [HUD hide:YES];
         }];
@@ -139,8 +139,6 @@
     ASIFormDataRequest *limitUserListReq = [ASIFormDataRequest requestWithURL:url];
     [limitUserListReq setPostValue:@"all" forKey:@"type"];
     [limitUserListReq setCompletionBlock:^{//成功
-        
-        NSLog(@"%@",[limitUserListReq responseString]);
         NSString *responseStr = [limitUserListReq responseString];
         NSDictionary *responseDict = [responseStr JSONValue];
         int totalCount = [[responseDict objectForKey:@"totalCount"] intValue];;
@@ -148,6 +146,10 @@
             NSArray *arr = [responseDict objectForKey:@"result"];
             for (NSDictionary *dict in arr) {
                 [limitArray addObject:[[UserVO alloc] initNeighbourWithDict:dict]];
+                
+                UserVO *user = [[UserVO alloc] initNeighbourWithDict:dict];
+                NSLog(@"name:%@,%i", user.nickName,user.isRestrict);
+                
             }
             [limitTableView reloadData];
         }

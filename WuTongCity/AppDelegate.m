@@ -28,8 +28,12 @@
 
     //add
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"addData.sqlite"];
+    NSArray  *us = [WZUser MR_findAll];
+    for (WZUser *u in us) {
+        NSLog(@"%@:%@",u.nickName,u.loginTime);
+    }
     
-    NSArray *users =[WZUser   MR_findAllSortedBy:@"loginTime" ascending:YES];
+    NSArray *users =[WZUser   MR_findAllSortedBy:@"loginTime" ascending:NO];
     if (users.count > 0) {
         WZUser *user = [users objectAtIndex:0];
         BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
