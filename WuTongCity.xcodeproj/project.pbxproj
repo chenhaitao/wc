@@ -46,6 +46,7 @@
 		5F5852FC17F518DA000BB411 /* timeline_new_status_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5852FA17F518DA000BB411 /* timeline_new_status_background.png */; };
 		5F5852FD17F518DA000BB411 /* timeline_new_status_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */; };
 		5F58533A17F526F8000BB411 /* NewWeiboCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F58533917F526F8000BB411 /* NewWeiboCommentViewController.m */; };
+		5F58534017F55D87000BB411 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F58533E17F55D87000BB411 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */; };
 		5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
@@ -669,6 +670,8 @@
 		5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_new_status_background@2x.png"; sourceTree = "<group>"; };
 		5F58533817F526F8000BB411 /* NewWeiboCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWeiboCommentViewController.h; sourceTree = "<group>"; };
 		5F58533917F526F8000BB411 /* NewWeiboCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWeiboCommentViewController.m; sourceTree = "<group>"; };
+		5F58533C17F55D87000BB411 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		5F58533E17F55D87000BB411 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KTPhotoBrowser.bundle; sourceTree = "<group>"; };
 		5F8A891917F293B200249FAA /* KTPhotoBrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserDataSource.h; sourceTree = "<group>"; };
 		5F8A891A17F293B200249FAA /* KTPhotoBrowserGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserGlobal.h; sourceTree = "<group>"; };
@@ -1661,6 +1664,15 @@
 			name = customStatusBar;
 			sourceTree = "<group>";
 		};
+		5F58533B17F55D87000BB411 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				5F58533C17F55D87000BB411 /* RegexKitLite.h */,
+				5F58533E17F55D87000BB411 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		5F8A891717F293B200249FAA /* KTPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2140,6 +2152,7 @@
 		E78B6790178AB7770006A110 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5F58533B17F55D87000BB411 /* RegexKitLite */,
 				E7C02E7E17DF869000EC6E7D /* KTPhotoBrowser */,
 				E7C02E5D17DE694E00EC6E7D /* SDWebImage */,
 				E7B275E317D7C55D00580A0F /* FileItemTableCell */,
@@ -3956,6 +3969,7 @@
 				5F5010B117F40E23004F6B3B /* WZUser.m in Sources */,
 				5F5010B417F42CDA004F6B3B /* NSString+URLEncoding.m in Sources */,
 				5F58533A17F526F8000BB411 /* NewWeiboCommentViewController.m in Sources */,
+				5F58534017F55D87000BB411 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4047,6 +4061,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuTongCity/WuTongCity-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "WuTongCity/WuTongCity-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -4055,6 +4070,10 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/WuTongCity/util/XMPP/Vendor/libidn\"",
 					"\"$(SRCROOT)/WuTongCity/Util/XMPP/Vendor/libidn\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjeC",
+					"-licucore",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -4069,6 +4088,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WuTongCity/WuTongCity-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "WuTongCity/WuTongCity-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -4077,6 +4097,10 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/WuTongCity/util/XMPP/Vendor/libidn\"",
 					"\"$(SRCROOT)/WuTongCity/Util/XMPP/Vendor/libidn\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjeC",
+					"-licucore",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

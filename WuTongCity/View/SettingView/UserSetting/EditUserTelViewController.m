@@ -129,10 +129,30 @@
     
 }
 
+////限制输入的文本的长度
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+//    CGFloat width =  [textField.text sizeWithFont:textField.font].width;
+//    return (width <= (textField.frame.size.width-50));//减去50为叉号的位置
+//}
+
 //限制输入的文本的长度
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    CGFloat width =  [textField.text sizeWithFont:textField.font].width;
-    return (width <= (textField.frame.size.width-50));//减去50为叉号的位置
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+{
+    if ([string isEqualToString:@"\n"])
+    {
+        return YES;
+    }
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    
+    if ([toBeString length] > 15) {
+        textField.text = [toBeString substringToIndex:10];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"超过最大字数不能输入了" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
 }
 
 //pragma mark  -------修改网络请求回调----------

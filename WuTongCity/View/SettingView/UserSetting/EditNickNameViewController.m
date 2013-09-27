@@ -9,6 +9,8 @@
 #import "EditNickNameViewController.h"
 #import <QuartzCore/QuartzCore.h>
 //#import "UITextField.h"
+#import "RegexKitLite.h"
+#define  maxWordsConst 10
 
 @interface EditNickNameViewController ()
 
@@ -118,12 +120,24 @@
 }
 
 //限制输入的文本的长度
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 {
-//    int MAX_CHARS = 15;
-    CGFloat width =  [textField.text sizeWithFont:textField.font].width;
-    NSLog(@"%f=======%f",width,textField.frame.size.width);
-    return (width <= (textField.frame.size.width-50));//减去50为叉号的位置
+    if ([string isEqualToString:@"\n"])
+    {
+        return YES;
+    }
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (nickNameTextField == textField)
+    {
+        if ([toBeString length] > 10) {
+            textField.text = [toBeString substringToIndex:10];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"超过最大字数不能输入了" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 

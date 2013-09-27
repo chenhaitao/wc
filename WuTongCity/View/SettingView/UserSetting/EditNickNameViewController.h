@@ -18,6 +18,7 @@
 
 //@property(strong,nonatomic)NSArray *settingArray;
 @property (strong,nonatomic) NSString *nickName;
+@property (assign,nonatomic) int maxWords;
 
 
 - (id)initWithNickName:(NSString *)_nickName;
