@@ -10,7 +10,7 @@
 
 @implementation NeighbourDetailCell
 @synthesize titleLab, contentLab;
-- (id)initWithTitle:(NSString *) _title content:(NSString *)_content{
+- (id)initWithTitle:(NSString *) _title content:(NSString *)_content mark:(NSString *)_mark;{
     self = [super init];
     if (self) {
         //标题
@@ -31,7 +31,10 @@
             }
         }
         self.contentLab = [[UILabel alloc]initWithFrame:CGRectMake(90, 10, 180, 30)];
-        [self.contentLab setText:_content];
+        if ([_mark isEqualToString:@"0"]) //表示公开
+        {
+            [self.contentLab setText:_content];
+        }
         [self.contentLab setFont:[UIFont systemFontOfSize:14]];
         [self.contentLab setTextColor:[UIColor blackColor]];
         [self.contentLab setBackgroundColor:[UIColor clearColor]];

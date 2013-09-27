@@ -114,7 +114,7 @@
     [self.view addSubview:accountCodeView];
     
     //验证码输入框
-    checkingCodeText = [[UITextField alloc]initWithFrame:CGRectMake(10, 10, 144, 25)];
+    checkingCodeText = [[UITextField alloc]initWithFrame:CGRectMake(10, 10, 130, 25)];
     checkingCodeText.delegate = self;//关闭键盘
     checkingCodeText.textColor = [UIColor blackColor];
     checkingCodeText.placeholder = INPUT_YOUR_CHECKINGCODE;
