@@ -13,6 +13,6 @@
 @property (strong, nonatomic)UILabel *titleLab;//标题
 @property (strong, nonatomic)UILabel *contentLab;//内容
 
-- (id)initWithTitle:(NSString *) _title content:(NSString *)_content;
+- (id)initWithTitle:(NSString *) _title content:(NSString *)_content mark:(NSString *)_mark;
 
 @end

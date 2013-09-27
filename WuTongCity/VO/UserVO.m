@@ -163,6 +163,79 @@
     return self;
 }
 
+-(NSMutableDictionary *)getUserDcitForView{
+    NSMutableDictionary *userSection = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *userDict = [[NSMutableDictionary alloc]init];
+    NSMutableArray *userArray = [[NSMutableArray alloc]init];
+    
+    //头像---将头像放入第一个分组
+    [userDict setValue:self.avatar forKey:@"content"];
+    [userDict setValue:AVATAR forKey:@"title"];
+    [userDict setValue:AVATAR_MARK forKey:@"mark"];
+    [userArray addObject:userDict];
+    [userSection setValue:userArray forKey:[NSString stringWithFormat:@"%d",1]];
+    
+    //将昵称、个性签名放入第二个分组
+    userArray = [[NSMutableArray alloc]init];
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.nickName forKey:@"content"];
+    [userDict setValue:NICKNAME forKey:@"title"];
+    [userDict setValue:NICKNAME_MARK forKey:@"mark"];
+    [userArray addObject:userDict];
+    
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.signature forKey:@"content"];
+    [userDict setValue:SIGNATURE forKey:@"title"];
+    [userDict setValue:SIGNATURE_MARK forKey:@"mark"];
+    [userArray addObject:userDict];
+    [userSection setValue:userArray forKey:[NSString stringWithFormat:@"%d",2]];
+    
+    //将姓名、电话、住址放入第三个分组
+    userArray = [[NSMutableArray alloc]init];
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.realName forKey:@"content"];
+    [userDict setValue:REALNAME forKey:@"title"];
+    [userDict setValue:REALNAME_MARK forKey:@"mark"];
+    [userArray addObject:userDict];
+    
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.mobile forKey:@"content"];
+    [userDict setValue:MOBILE forKey:@"title"];
+    [userDict setValue:[NSString stringWithFormat:@"%d",self.mobilePrivacy] forKey:@"mark"];
+    [userArray addObject:userDict];
+    
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:house forKey:@"content"];
+    [userDict setValue:ADDRESS forKey:@"title"];
+    [userDict setValue:ADDRESS_MARK forKey:@"mark"];
+    [userArray addObject:userDict];
+    [userSection setValue:userArray forKey:[NSString stringWithFormat:@"%d",3]];
+    
+    //将性别、职业、生日放入第四个分组
+    userArray = [[NSMutableArray alloc]init];
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:[NSString stringWithFormat:@"%d",self.sex]  forKey:@"content"];
+    [userDict setValue:SEX forKey:@"title"];
+    [userDict setValue:[NSString stringWithFormat:@"%d",self.sexPrivacy] forKey:@"mark"];
+    [userArray addObject:userDict];
+    
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.employer forKey:@"content"];
+    [userDict setValue:EMPLOYER forKey:@"title"];
+    [userDict setValue:[NSString stringWithFormat:@"%d",self.employerPrivacy] forKey:@"mark"];
+    [userArray addObject:userDict];
+    
+    userDict = [[NSMutableDictionary alloc]init];
+    [userDict setValue:self.birthday forKey:@"content"];
+    [userDict setValue:BIRTHDAY forKey:@"title"];
+    [userDict setValue:[NSString stringWithFormat:@"%d",self.birthdayPrivacy] forKey:@"mark"];
+    [userArray addObject:userDict];
+    [userSection setValue:userArray forKey:[NSString stringWithFormat:@"%d",4]];
+    
+    return userSection;
+}
+
+
 -(NSMutableDictionary *)getUserDcit{
     NSMutableDictionary *userSection = [[NSMutableDictionary alloc]init];
     NSMutableDictionary *userDict = [[NSMutableDictionary alloc]init];

@@ -24,7 +24,7 @@
     if (self = [super init]) {
         userVO = [[UserVO alloc] init];
         userVO = _userVO;
-        self.neighbourDict = [[NSMutableDictionary alloc]initWithDictionary:[userVO getUserDcit]];//用户信息字典
+        self.neighbourDict = [[NSMutableDictionary alloc]initWithDictionary:[userVO getUserDcitForView]];//用户信息字典
         [self.neighbourDict removeObjectForKey:@"1"];//删除第一个分组
         [self.neighbourDict removeObjectForKey:@"2"];//删除第二个分组
         self.neighbourSectionArray = [[NSArray alloc]initWithArray:[self.neighbourDict allKeys]];//分组集合
@@ -90,7 +90,7 @@
     static NSString * tableIdentifier=@"NeighbourDetailCell";
     NeighbourDetailCell *cell=[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
     if(cell==nil){
-        cell=[[NeighbourDetailCell alloc]initWithTitle:[dict objectForKey:@"title"] content:[dict objectForKey:@"content"]];
+        cell=[[NeighbourDetailCell alloc]initWithTitle:[dict objectForKey:@"title"] content:[dict objectForKey:@"content"] mark:[dict objectForKey:@"mark"]];
 
     }
     return cell;

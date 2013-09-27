@@ -55,6 +55,7 @@
 
 -(id) initLoginUserWithDict:(NSDictionary *)dict loginId:(NSString *)_loginId password:(NSString *)_password;
 
+-(NSMutableDictionary *)getUserDcitForView;
 
 -(NSMutableDictionary *)getUserDcit;
 
