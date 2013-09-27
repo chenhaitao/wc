@@ -18,7 +18,8 @@
 
 @implementation TableBarViewController
 
-- (void)viewDidLoad{    
+- (void)viewDidLoad{
+    [super viewDidLoad];
     //微博页面
     WeiBoViewController * weiboView = [[WeiBoViewController alloc]init];
     weiboView.title = @"邻居说";
@@ -58,18 +59,17 @@
     
     //设置TabBarItem的标题与图片
 //    [(UITabBarItem *)[self.tabBar.items objectAtIndex:0] setTitle:@"第一页"];
-    [(UITabBarItem *)[self.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"tabbar_discover.png"]];
+    [weiboNav.tabBarItem setImage:[UIImage imageNamed:@"tabbar_discover.png"]];
 //    [(UITabBarItem *)[self.tabBar.items objectAtIndex:1] setTitle:@"第二页"];
     [(UITabBarItem *)[self.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"tabbar_contacts.png"]];
     [(UITabBarItem *)[self.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"tabbar_chat.png"]];
 //    [(UITabBarItem *)[self.tabBar.items objectAtIndex:2] setTitle:@"第三页"];
     [(UITabBarItem *)[self.tabBar.items objectAtIndex:3] setImage:[UIImage imageNamed:@"tabbar_me.png"]];
     
-    tabBarController.selectedIndex=0;
+  //  tabBarController.selectedIndex=0;
 
     //接受新消息广播,并刷新tableview
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newMsgCome:) name:MESSAGE_NOTIFACTION object:nil];
-    [super viewDidLoad];
 }
 
 #pragma mark  接受新消息广播

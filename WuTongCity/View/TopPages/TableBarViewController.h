@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TableBarViewController : UITabBarController{
-    UITabBarController *tabBarController;
+ //   UITabBarController *tabBarController;
     int chatMsgCount;
 }
 

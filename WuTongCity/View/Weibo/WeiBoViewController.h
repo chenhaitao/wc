@@ -14,6 +14,7 @@
 
 @interface WeiBoViewController : EGORefreshTableView<MBProgressHUDDelegate> {
     NSMutableArray *_dataSource;
+     NSMutableArray *newWeiboComment;
     MBProgressHUD *HUD;//透明指示层
     
     int pageNo;//第几页
@@ -31,6 +32,7 @@
     
 }
 @property (nonatomic,strong) CustomStatusBar *customStatusBar;
+@property (nonatomic,strong) UIView *messageView;
 //
 //@property (strong, nonatomic) ParamButton *avatarBtn;//头像按钮
 //@property (strong, nonatomic) ParamButton *nickNameBtn;//昵称按钮

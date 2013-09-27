@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-         timestampString = "401874224.900224"
+         timestampString = "401944712.06409"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "546"
-         endingLineNumber = "546"
+         startingLineNumber = "700"
+         endingLineNumber = "700"
          landmarkName = "-requestError:"
          landmarkType = "5">
       </FileBreakpoint>

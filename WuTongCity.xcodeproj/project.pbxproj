@@ -42,6 +42,10 @@
 		5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */; };
 		5F5010AE17F400FB004F6B3B /* CustomStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */; };
 		5F5010B117F40E23004F6B3B /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010B017F40E23004F6B3B /* WZUser.m */; };
+		5F5010B417F42CDA004F6B3B /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010B317F42CDA004F6B3B /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		5F5852FC17F518DA000BB411 /* timeline_new_status_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5852FA17F518DA000BB411 /* timeline_new_status_background.png */; };
+		5F5852FD17F518DA000BB411 /* timeline_new_status_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */; };
+		5F58533A17F526F8000BB411 /* NewWeiboCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F58533917F526F8000BB411 /* NewWeiboCommentViewController.m */; };
 		5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */; };
 		5F8A892717F293B200249FAA /* KTPhotoBrowserGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891B17F293B200249FAA /* KTPhotoBrowserGlobal.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
 		5F8A892817F293B200249FAA /* KTPhotoScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A891D17F293B200249FAA /* KTPhotoScrollViewController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
@@ -659,6 +663,12 @@
 		5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusBar.m; sourceTree = "<group>"; };
 		5F5010AF17F40E23004F6B3B /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
 		5F5010B017F40E23004F6B3B /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
+		5F5010B217F42CDA004F6B3B /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		5F5010B317F42CDA004F6B3B /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		5F5852FA17F518DA000BB411 /* timeline_new_status_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_new_status_background.png; sourceTree = "<group>"; };
+		5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_new_status_background@2x.png"; sourceTree = "<group>"; };
+		5F58533817F526F8000BB411 /* NewWeiboCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWeiboCommentViewController.h; sourceTree = "<group>"; };
+		5F58533917F526F8000BB411 /* NewWeiboCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWeiboCommentViewController.m; sourceTree = "<group>"; };
 		5F8A891817F293B200249FAA /* KTPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KTPhotoBrowser.bundle; sourceTree = "<group>"; };
 		5F8A891917F293B200249FAA /* KTPhotoBrowserDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserDataSource.h; sourceTree = "<group>"; };
 		5F8A891A17F293B200249FAA /* KTPhotoBrowserGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTPhotoBrowserGlobal.h; sourceTree = "<group>"; };
@@ -1758,6 +1768,8 @@
 		E760858917C13A16003D14F4 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5F5010B217F42CDA004F6B3B /* NSString+URLEncoding.h */,
+				5F5010B317F42CDA004F6B3B /* NSString+URLEncoding.m */,
 				5F8A891717F293B200249FAA /* KTPhotoBrowser */,
 				E760858A17C13A1C003D14F4 /* active_page_image.png */,
 				E760858B17C13A1C003D14F4 /* active_page_image@2x.png */,
@@ -2261,6 +2273,8 @@
 				E79FEDB817BD15FA007F9C18 /* CreateWeiboViewController.m */,
 				E73CABD317C08F3600078D4F /* ImageBrowseViewController.h */,
 				E73CABD417C08F3600078D4F /* ImageBrowseViewController.m */,
+				5F58533817F526F8000BB411 /* NewWeiboCommentViewController.h */,
+				5F58533917F526F8000BB411 /* NewWeiboCommentViewController.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -2268,6 +2282,8 @@
 		E7A7A8BB17CA5CA000E40E17 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				5F5852FA17F518DA000BB411 /* timeline_new_status_background.png */,
+				5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */,
 				E7C0209D17D8AF9F00EC6E7D /* blog */,
 				E7C0209817D8821F00EC6E7D /* Neighbour */,
 				E7BB913817D605D30099F968 /* registerImage */,
@@ -3635,6 +3651,8 @@
 				5F9C6DF817F00D4C00DCFFEE /* EditUserNameOrPasswordViewController.xib in Resources */,
 				42F3326317F2813000EDBCDB /* more.png in Resources */,
 				5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */,
+				5F5852FC17F518DA000BB411 /* timeline_new_status_background.png in Resources */,
+				5F5852FD17F518DA000BB411 /* timeline_new_status_background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3936,6 +3954,8 @@
 				5F8A892F17F2940500249FAA /* PhotoDataSource.m in Sources */,
 				5F5010AE17F400FB004F6B3B /* CustomStatusBar.m in Sources */,
 				5F5010B117F40E23004F6B3B /* WZUser.m in Sources */,
+				5F5010B417F42CDA004F6B3B /* NSString+URLEncoding.m in Sources */,
+				5F58533A17F526F8000BB411 /* NewWeiboCommentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
