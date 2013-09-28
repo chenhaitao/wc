@@ -188,7 +188,7 @@
 //                          failure:^(NSError *error){
 //                              NSLog(@"fail");
 //                          }];
-        [imageView1 setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defAvatar"]];
+        [imageView1 setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defaultVillagePicture.png"]];
         [scrollView addSubview:imageView1]; // 首页是第0页,默认从第1页开始的。所以+320。。。
         
         
