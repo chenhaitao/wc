@@ -184,6 +184,7 @@
     ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
     [req setCompletionBlock:^{
         NSLog(@"success");
+
     }];
     
     [req  setFailedBlock:^{
@@ -192,6 +193,8 @@
     }];
     [req startAsynchronous];
     [self.view removeFromSuperview];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loginOut" object:nil];
 }
 
 

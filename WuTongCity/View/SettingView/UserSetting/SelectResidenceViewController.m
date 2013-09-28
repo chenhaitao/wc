@@ -54,16 +54,14 @@
        
         if ([request.responseString JSONValue]) {
             NSArray *tempArray = [request.responseString JSONValue];
-            residenceArray = [[NSMutableArray alloc] initWithArray:tempArray];
-            NSMutableArray *dete = [NSMutableArray array];
-            for (  NSDictionary *dic in residenceArray) {
-                if ([[dic objectForKey:@"building"] length] < 1) {
-                    [dete addObject:dic];
-                }
+            if (tempArray.count == 0) {
+                UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"住宅选择" message:@"住宅信息为空" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                [av show];
+            }else{
+                residenceArray = [[NSMutableArray alloc] initWithArray:tempArray];
+                [residenceTableView reloadData];
             }
-            [residenceArray removeObjectsInArray:dete];
             
-            [residenceTableView reloadData];
             
         }else{
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"住宅选择" message:@"住宅信息读取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];

@@ -28,8 +28,15 @@
         [self.messageButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         self.messageButton.titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [self.messageButton addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(action) name:@"loginOut" object:nil];
     }
     return self;
+}
+
+- (void)action
+{
+    [self hiddenMessage];
 }
 
 - (void)clickAction
@@ -49,6 +56,7 @@
             self.transform = CGAffineTransformTranslate(self.transform, 0, -2);
         }];
     }];
+    
 }
 
 

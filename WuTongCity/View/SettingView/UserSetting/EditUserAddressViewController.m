@@ -163,12 +163,12 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [editUserAddressTableView cellForRowAtIndexPath:indexPath];
     if (cell.tag > 0) {
-        if (cell.tag != 1 && [DataCenter sharedInstance].userVO.building.length == 0) {
-            UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"设置住宅" message:@"请先设置门栋号" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
+        if (cell.tag == 2 && [DataCenter sharedInstance].userVO.building.length == 0) {
+            UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"设置住宅" message:@"请先设置楼栋号" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
             return;
         }
-        else if(cell.tag != 2 &&[DataCenter sharedInstance].userVO.unit.length == 0) {
+        else if(cell.tag == 3 &&[DataCenter sharedInstance].userVO.unit.length == 0) {
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"设置住宅" message:@"请先设置单元号" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
             return;
