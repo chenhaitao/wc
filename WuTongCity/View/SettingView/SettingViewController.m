@@ -180,24 +180,21 @@
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.window.rootViewController = navCtrl; 
     //通知服务端清session
-    NSString *url = [NSString stringWithFormat:@"v2.wutongyi.com/logoff.do"];
-    ASIFormDataRequest *clearSessionReq = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
-    clearSessionReq.timeOutSeconds= 30;
-    [clearSessionReq setDelegate:self];
-    [clearSessionReq setDidFinishSelector:@selector(clearSuccess:)];
-    [clearSessionReq setDidFailSelector:@selector(requestError:)];
-    [clearSessionReq startAsynchronous];
+    NSString *url = [NSString stringWithFormat:@"http://v2.wutongyi.com/logoff.do"];
+    ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
+    [req setCompletionBlock:^{
+        NSLog(@"success");
+    }];
+    
+    [req  setFailedBlock:^{
+        NSLog(@"error");
+
+    }];
+    [req startAsynchronous];
     [self.view removeFromSuperview];
 }
 
--(void)clearSuccess
-{
-    NSLog(@"success");
-}
--(void)requestError
-{
-    NSLog(@"error");
-}
+
 
 
 @end

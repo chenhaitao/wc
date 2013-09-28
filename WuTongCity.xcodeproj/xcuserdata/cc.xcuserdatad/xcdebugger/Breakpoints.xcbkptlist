@@ -33,13 +33,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/SettingView/UserSetting/EditUserBirthdayViewController.m"
-         timestampString = "401853563.94068"
+         filePath = "WuTongCity/View/SettingView/SettingViewController.m"
+         timestampString = "402024466.152923"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "211"
-         endingLineNumber = "211"
-         landmarkName = "-setBirthdayPrivacy:"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-logOut"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,11 +47,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/SettingView/SettingViewController.m"
-         timestampString = "401965450.691157"
+         timestampString = "402025059.827157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-logOut"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/SettingView/SettingViewController.m"
+         timestampString = "402024959.025036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "-logOut"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/SettingView/SettingViewController.m"
+         timestampString = "402024960.159865"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
          landmarkName = "-logOut"
          landmarkType = "5">
       </FileBreakpoint>
