@@ -28,6 +28,8 @@
                 _content = MALE;
             }else if([_content isEqualToString:FEMALE_VALUE]){
                 _content = FEMALE;
+            }else{
+                _content = @"";
             }
         }
         self.contentLab = [[UILabel alloc]initWithFrame:CGRectMake(90, 10, 180, 30)];
