@@ -57,8 +57,15 @@
     
 }
 
+- (BOOL)isValidTelphone
+{
+    return (userTelTextField.text.length==11&&([userTelTextField.text rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location==NSNotFound));
+}
+
 -(void)save{
     [DataCenter sharedInstance].userVO.mobile = userTelTextField.text;
+   
+ 
     
     //修改电话姓名
     ASIFormDataRequest *editTelReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:PERSONAL_MODIFY]]];

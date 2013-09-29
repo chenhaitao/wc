@@ -12,7 +12,9 @@
 #import "pinyin.h"
 #import "NeighDetailViewController.h"
 
+
 @interface NeighbourViewController ()
+
 
 @end
 
@@ -65,9 +67,7 @@
 }
 
 
-- (void)viewDidUnload{
-    [super viewDidUnload];
-}
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     //返回分组数量,即Array的数量
@@ -208,6 +208,12 @@
 
 
 -(void) neighbourList{
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.delegate = self;
+    [HUD show:YES];
+    
     NSURL *url = [NSURL URLWithString:[RequestLinkUtil getUrlByKey:USER_LIST]];
     ASIFormDataRequest *neighbourListReq = [ASIFormDataRequest requestWithURL:url];
     [neighbourListReq setPostValue:@"withoutShield" forKey:@"type"];

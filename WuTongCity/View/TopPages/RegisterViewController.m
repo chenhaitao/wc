@@ -38,7 +38,7 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"注册"
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
-                                                                     action:@selector(registert)];
+                                                                     action:@selector(toRegistert)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     
     [self.view setBackgroundColor:[UIColor colorWithRed:230.0 green:230.0 blue:230.0 alpha:1.0]];

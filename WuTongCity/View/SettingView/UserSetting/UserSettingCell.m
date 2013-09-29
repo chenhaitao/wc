@@ -29,8 +29,9 @@
         
         if ([self.mark isEqualToString:AVATAR_MARK]) {
             //用户头像
+            self.avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(230, 5, 40, 40)];
             if (_content.length > 0) {
-                self.avatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(230, 5, 40, 40)];
+                
                 NSString *avatarString= [[RequestLinkUtil getUrlByKey:DOWNLOAD_FILE] stringByAppendingFormat:@"%@",_content];
                 NSURL *avatarUrl=[NSURL URLWithString:avatarString];
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(230, 5, 40, 40)];
