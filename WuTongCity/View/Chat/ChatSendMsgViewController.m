@@ -51,7 +51,11 @@
     NSString *message = inputText;
     if (message.length > 0) {
         //生成消息对象
-        XMPPMessage *mes=[XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithUser:[NSString stringWithFormat:@"%@",_chatPerson.userId] domain:DOMAIN_NAME resource:@"wutongyi"]];
+        
+        
+        
+        
+        XMPPMessage *mes=[XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",_chatPerson.userId,HOST_NAME]]];
         [mes addChild:[DDXMLNode elementWithName:@"body" stringValue:message]];
         
         //发送消息

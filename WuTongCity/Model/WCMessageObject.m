@@ -65,7 +65,7 @@
     [db close];
     //发送全局通知
     [[NSNotificationCenter defaultCenter]postNotificationName:MESSAGE_NOTIFACTION object:aMessage ];
-
+    
     
     return worked;
 }
@@ -125,11 +125,11 @@
         NSLog(@"数据打开失败");
         return messageList;
     }
-    
+    //    u.userId = m.messageFrom or u.userId = m.messageTo and
     NSString *curuuid =[DataCenter sharedInstance].userVO.userId;
-    NSString *queryString=@"select * from  wcUser as u, wcMessage as m where u.userId = m.messageFrom or u.userId = m.messageTo and (m.messageFrom = ? or m.messageTo =?) group by u.userId order by m.messageDate";
+    NSString *queryString=@"select * from  wcUser as u, wcMessage as m where  1=1 group by ? order by m.messageDate";
     
-//    NSString *queryString=@"select * from wcMessage as m ,wcUser as u where u.userId<>? and ( u.userId=m.messageFrom or u.userId=m.messageTo ) group by u.userId  order by m.messageDate desc limit ?,10";
+    //    NSString *queryString=@"select * from wcMessage as m ,wcUser as u where u.userId<>? and ( u.userId=m.messageFrom or u.userId=m.messageTo ) group by u.userId  order by m.messageDate desc limit ?,10";
     FMResultSet *rs=[db executeQuery:queryString,curuuid,curuuid];
     while ([rs next]) {
         WCMessageObject *message=[[WCMessageObject alloc]init];
@@ -153,7 +153,7 @@
         
     }
     return  messageList;
-
+    
 }
 
 

@@ -197,7 +197,14 @@ static XMPPManager *sharedManager;
     
 	NSString *myJID = [DataCenter sharedInstance].userVO.userId;
 	if (myJID == nil) return NO;
-    [xmppStream setMyJID:[XMPPJID jidWithUser:myJID domain:DOMAIN_NAME resource:@"wutongyi"]];
+    
+    
+    
+    
+//    [xmppStream setMyJID:[XMPPJID jidWithUser:myJID domain:DOMAIN_NAME resource:@"wutongyi"]];
+    
+    [xmppStream setMyJID:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",[DataCenter sharedInstance].userVO.userId,HOST_NAME]]];
+    
 	NSError *error = nil;
 	if (![xmppStream connectWithTimeout:10 error:&error]){
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"服务器异常"
@@ -562,7 +569,7 @@ static XMPPManager *sharedManager;
         NSDictionary *userDict = [[NSDictionary alloc] initWithObjectsAndKeys:[dict objectForKey:@"uuid"],@"userId",
                                                                              [dict objectForKey:@"realName"],@"userNickname",
                                                                              [dict objectForKey:@"realName"],@"userDescription",
-                                                                             @"defVavtar.png",@"userHead",nil];
+                                                                             @"",@"userHead",nil];
         WCUserObject *user=[WCUserObject userFromDictionary:userDict];
         [WCUserObject saveNewUser:user];
     }
