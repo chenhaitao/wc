@@ -95,19 +95,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/TopPages/RegisterViewController.m"
-         timestampString = "402116716.272889"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "493"
-         endingLineNumber = "493"
-         landmarkName = "-loginRequestSuccess:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -131,19 +118,6 @@
          startingLineNumber = "276"
          endingLineNumber = "276"
          landmarkName = "-xmppStream:socketDidConnect:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/TopPages/RegisterViewController.m"
-         timestampString = "402116716.272889"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "464"
-         endingLineNumber = "464"
-         landmarkName = "-loginRequestSuccess:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -202,19 +176,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-         timestampString = "402131026.576139"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "94"
-         endingLineNumber = "94"
-         landmarkName = "-weiboComment"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/SettingView/MsgNoticeViewController.m"
          timestampString = "402131061.367751"
          startingColumnNumber = "9223372036854775807"
@@ -222,6 +183,32 @@
          startingLineNumber = "94"
          endingLineNumber = "94"
          landmarkName = "-getSwitchValue:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/TopPages/LoginViewController.m"
+         timestampString = "402132381.575919"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
+         landmarkName = "-login"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/TopPages/SelectVillagelViewController.m"
+         timestampString = "402132483.566935"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

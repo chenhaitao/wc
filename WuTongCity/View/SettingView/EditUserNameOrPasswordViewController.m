@@ -88,8 +88,8 @@
 //            [updateReq setPostValue:self.password.text forKey:@"loginPassword"];
            
             [updateReq setCompletionBlock:^{
-                self.user.password = self.password.text;
-                self.user.loginId = self.userName.text;
+                self.user.password = [MD5 md5:self.password.text];
+                self.user.loginId =  self.userName.text;
                 [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
                 
                 
