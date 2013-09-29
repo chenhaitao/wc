@@ -87,6 +87,7 @@
 //获取某联系人聊天记录
 +(NSMutableArray*)fetchMessageListWithUser:(NSString *)userId byPage:(int)pageInde
 {
+   
     NSMutableArray *messageList=[[NSMutableArray alloc]init];
     
     FMDatabase *db=[FMDatabase databaseWithPath:DATABASE_PATH];
@@ -95,7 +96,12 @@
         return messageList;
     }
     
-    NSString *queryString=@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate";
+    //NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate  Limit %i offset %i",10,pageInde*10 ];
+    
+    
+    NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageid desc  Limit %i , %i",(pageInde-1)*10,10];
+    
+     NSLog(@"queryString %@",queryString);
     
     NSLog(@"%@",[DataCenter sharedInstance].userVO.userId);
     NSLog(@"%@",userId);
@@ -111,7 +117,11 @@
         [ messageList addObject:message];
         
     }
-    return  messageList;
+    NSMutableArray *result = [NSMutableArray array];
+    for ( WCMessageObject *message in [messageList reverseObjectEnumerator]){
+        [result  addObject:message];
+    }
+    return  result;
     
 }
 

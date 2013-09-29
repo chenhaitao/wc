@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "DataCenter.h"
 #import "FaceToolBar.h"
+#import "FMDatabase.h"
+#import "FMResultSet.h"
+
 
 @interface ChatSendMsgViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, FaceToolBarDelegate>
 {
@@ -25,5 +28,6 @@
 //- (IBAction)sendIt:(id)sender;
 @property (nonatomic,retain) WCUserObject *chatPerson;
 
-
+@property (nonatomic,assign)BOOL isLoading;
+@property (nonatomic,assign) int pageNu;
 @end

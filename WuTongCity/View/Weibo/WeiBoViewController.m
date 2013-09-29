@@ -170,7 +170,7 @@
     
     
     
-    if (self.view.superview.window == nil) {
+    if (self.view.window == nil) {
         [self.navigationController.tabBarItem setBadgeValue:@"new"];
     }else{
         [self.navigationController.tabBarItem setBadgeValue:nil];

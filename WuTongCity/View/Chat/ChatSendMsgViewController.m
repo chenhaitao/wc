@@ -30,7 +30,8 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title=_chatPerson.userNickname;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(newMsgCome:) name:MESSAGE_NOTIFACTION object:nil];
-    [self refresh];
+    
+    self.pageNu = 1;
     
     
     msgRecordTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-90) style:UITableViewStylePlain];
@@ -44,7 +45,20 @@
     bar.delegate=self;
     [self.view addSubview:bar];
     
+ 
+   
+ 
     
+}
+
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self refresh];
 }
 
 -(void)sendTextAction:(NSString *)inputText{
@@ -70,14 +84,46 @@
     
 }
 
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView.contentOffset.y < -60) {
+        [self refresh1];
+    }
+}
+
+-(void)refresh1
+{
+    if (!self.isLoading) {
+        self.isLoading = YES;
+        NSMutableArray *array =[WCMessageObject fetchMessageListWithUser:_chatPerson.userId byPage:self.pageNu+1];
+        if (array.count!=0) {
+           msgRecords = [NSMutableArray arrayWithArray: [array arrayByAddingObjectsFromArray:msgRecords]];
+            [msgRecordTable reloadData];
+            
+            [msgRecordTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            
+            self.pageNu++;
+        }
+        
+        self.isLoading = NO;
+    }
+   
+    
+}
 -(void)refresh
 {
-    msgRecords =[WCMessageObject fetchMessageListWithUser:_chatPerson.userId byPage:1];
-    if (msgRecords.count!=0) {
-        [msgRecordTable reloadData];
+ 
+        msgRecords =[WCMessageObject fetchMessageListWithUser:_chatPerson.userId byPage:1];
+        if (msgRecords.count!=0) {
+            [msgRecordTable reloadData];
+            
+            [msgRecordTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
+        }
         
-        [msgRecordTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
+   
     
 }
 
@@ -138,7 +184,40 @@
     
     //[WCMessageObject save:notifacation.object];
     
-    [self refresh];
+    [self refresh2];
     
+}
+
+- (void)refresh2
+{
+    if (self.view.window != nil) {
+        FMDatabase *db=[FMDatabase databaseWithPath:DATABASE_PATH];
+        if (![db open]) {
+            NSLog(@"数据打开失败");
+            return ;
+        }
+        
+        
+        //NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate  Limit %i offset %i",10,pageInde*10 ];
+        NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageDate desc Limit 0 , 1" ];
+        NSMutableArray *messageList = [NSMutableArray array];
+        NSLog(@"%@",[DataCenter sharedInstance].userVO.userId);
+        
+        FMResultSet *rs=[db executeQuery:queryString];
+        while ([rs next]) {
+            WCMessageObject *message=[[WCMessageObject alloc]init];
+            [message setMessageId:[rs objectForColumnName:kMESSAGE_ID]];
+            [message setMessageContent:[rs stringForColumn:kMESSAGE_CONTENT]];
+            [message setMessageDate:[rs dateForColumn:kMESSAGE_DATE]];
+            [message setMessageFrom:[rs stringForColumn:kMESSAGE_FROM]];
+            [message setMessageTo:[rs stringForColumn:kMESSAGE_TO]];
+            [message setMessageType:[rs objectForColumnName:kMESSAGE_TYPE]];
+            [ messageList addObject:message];
+            
+        }
+        [msgRecords insertObject:messageList.lastObject atIndex:msgRecords.count - 1];
+        [msgRecordTable reloadData];
+    }
+   
 }
 @end
