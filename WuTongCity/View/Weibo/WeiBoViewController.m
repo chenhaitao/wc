@@ -91,6 +91,9 @@
 
 - (void)weiboComment
 {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"commentKey"]) {
+        return;
+    }
     NSString *time = [[NSUserDefaults standardUserDefaults] objectForKey:kweiboTime];
     if (time.length == 0) {
         NSLog(@"time is nil");

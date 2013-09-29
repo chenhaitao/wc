@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-         timestampString = "401944712.06409"
+         timestampString = "402130948.792871"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "700"
-         endingLineNumber = "700"
+         startingLineNumber = "703"
+         endingLineNumber = "703"
          landmarkName = "-requestError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -196,6 +196,32 @@
          startingLineNumber = "35"
          endingLineNumber = "35"
          landmarkName = "-toDictionary"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
+         timestampString = "402131026.576139"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-weiboComment"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "WuTongCity/View/SettingView/MsgNoticeViewController.m"
+         timestampString = "402131061.367751"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-getSwitchValue:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

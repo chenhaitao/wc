@@ -62,6 +62,11 @@
     cell.textLabel.text = [dict objectForKey:@"title"];
     //创建开关控件
     UISwitch *isShow= [[UISwitch alloc] initWithFrame:CGRectMake(210, 10, 80, 20)];
+    if ([cell.textLabel.text isEqualToString:@"有人评论通知"]) {
+        isShow.tag = 2013;
+    }else{
+        isShow.tag = 2014;
+    }
     [isShow setOn:[dict objectForKey:@"content"]];
     [isShow addTarget:self action:@selector(getSwitchValue:) forControlEvents:UIControlEventValueChanged];
     
@@ -87,7 +92,11 @@
 -(void)getSwitchValue:(UISwitch *) _switch{
     
     NSLog(@"switch ison :%d",_switch.isOn);
-    
+    if (_switch.tag == 2013 && _switch.isOn) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"commentKey"];
+    } else if(_switch.tag == 2013 && !_switch.isOn){
+         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"commentKey"];
+    }
 }
 
 @end
