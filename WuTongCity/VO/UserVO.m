@@ -204,6 +204,18 @@
     [userDict setValue:[NSString stringWithFormat:@"%d",self.mobilePrivacy] forKey:@"mark"];
     [userArray addObject:userDict];
     
+    
+    NSMutableString *userResidence = [[NSMutableString alloc] init];
+    if (self.building > 0) {
+        [userResidence appendFormat:@"%@栋",self.building];
+        if (self.unit > 0) {
+            [userResidence appendFormat:@"%@单元",self.building];
+            if (![self.room isEqualToString:@""]) {
+                [userResidence appendFormat:@"%@室",self.room];
+            }
+        }
+    }
+    self.house = userResidence;
     userDict = [[NSMutableDictionary alloc]init];
     [userDict setValue:house forKey:@"content"];
     [userDict setValue:ADDRESS forKey:@"title"];
@@ -277,6 +289,18 @@
     [userDict setValue:MOBILE_MARK forKey:@"mark"];
     [userArray addObject:userDict];
     
+    
+    NSMutableString *userResidence = [[NSMutableString alloc] init];
+    if (self.building.intValue > 0) {
+        [userResidence appendFormat:@"%@栋",self.building];
+        if (self.unit.intValue > 0) {
+            [userResidence appendFormat:@"%@单元",self.building];
+            if (![self.room isEqualToString:@""]) {
+                [userResidence appendFormat:@"%@室",self.room];
+            }
+        }
+    }
+    house = userResidence;
     userDict = [[NSMutableDictionary alloc]init];
     [userDict setValue:house forKey:@"content"];
     [userDict setValue:ADDRESS forKey:@"title"];

@@ -40,6 +40,7 @@
 		5F408CAF17EF034D008B1B78 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9217EF034D008B1B78 /* MagicalRecord+ShorthandSupport.m */; };
 		5F408CB017EF034D008B1B78 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F408C9417EF034D008B1B78 /* MagicalRecord.m */; };
 		5F408CB517EF049C008B1B78 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F408CB317EF049C008B1B78 /* Model.xcdatamodeld */; };
+		5F41A08E17F6D7830057A92B /* defaultVillagePicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F41A08D17F6D7830057A92B /* defaultVillagePicture.png */; };
 		5F5010AE17F400FB004F6B3B /* CustomStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */; };
 		5F5010B117F40E23004F6B3B /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010B017F40E23004F6B3B /* WZUser.m */; };
 		5F5010B417F42CDA004F6B3B /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5010B317F42CDA004F6B3B /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
@@ -660,6 +661,7 @@
 		5F408C9517EF034D008B1B78 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		5F408C9617EF034D008B1B78 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
 		5F408CB417EF049C008B1B78 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		5F41A08D17F6D7830057A92B /* defaultVillagePicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultVillagePicture.png; sourceTree = "<group>"; };
 		5F5010AC17F400FB004F6B3B /* CustomStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomStatusBar.h; sourceTree = "<group>"; };
 		5F5010AD17F400FB004F6B3B /* CustomStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomStatusBar.m; sourceTree = "<group>"; };
 		5F5010AF17F40E23004F6B3B /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
@@ -2295,6 +2297,7 @@
 		E7A7A8BB17CA5CA000E40E17 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				5F41A08D17F6D7830057A92B /* defaultVillagePicture.png */,
 				5F5852FA17F518DA000BB411 /* timeline_new_status_background.png */,
 				5F5852FB17F518DA000BB411 /* timeline_new_status_background@2x.png */,
 				E7C0209D17D8AF9F00EC6E7D /* blog */,
@@ -3666,6 +3669,7 @@
 				5F8A892617F293B200249FAA /* KTPhotoBrowser.bundle in Resources */,
 				5F5852FC17F518DA000BB411 /* timeline_new_status_background.png in Resources */,
 				5F5852FD17F518DA000BB411 /* timeline_new_status_background@2x.png in Resources */,
+				5F41A08E17F6D7830057A92B /* defaultVillagePicture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

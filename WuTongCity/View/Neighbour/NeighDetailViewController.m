@@ -88,7 +88,7 @@
 
 
     static NSString * tableIdentifier=@"NeighbourDetailCell";
-    NeighbourDetailCell *cell=[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    NeighbourDetailCell *cell = nil;
     if(cell==nil){
         cell=[[NeighbourDetailCell alloc]initWithTitle:[dict objectForKey:@"title"] content:[dict objectForKey:@"content"] mark:[dict objectForKey:@"mark"]];
 
