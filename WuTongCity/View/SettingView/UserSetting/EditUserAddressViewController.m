@@ -9,6 +9,7 @@
 #import "EditUserAddressViewController.h"
 #import "DataCenter.h"
 #import "SelectResidenceViewController.h"
+#import "UserSettingViewController.h"
 
 @interface EditUserAddressViewController ()
 
@@ -57,7 +58,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self reloadEditUserAddressTableView];
-    
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+   
 }
 
 -(void)goback{
@@ -66,16 +73,18 @@
 
 -(void)save{
     
-//    if ([[DataCenter sharedInstance].residenceUUID isEqualToString:@""]) {
-//        [DataCenter sharedInstance].userVO.building = @"";
-//        [DataCenter sharedInstance].userVO.unit = @"";
-//        UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"请设置完整的个人住宅信息" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-//        
-//        [av show];
-//        
-//        return;
-//    }else{
-        //
+    UserVO *user = [DataCenter sharedInstance].userVO;
+    if (user.building.length == 0 || user.unit.length == 0 || user.room.length == 0) {
+        UIAlertView *av1=[[UIAlertView alloc]initWithTitle:@"梧桐邑"
+                                                   message:@"请完整填写地址"
+                                                  delegate:nil
+                                         cancelButtonTitle:@"确定"
+                                         otherButtonTitles: nil];
+        [av1 show];
+        return;
+    }
+    
+    
     
     if (![[DataCenter sharedInstance].userVO.residenceId isEqualToString:@""]) {
         ASIFormDataRequest *createAddressReq=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:[RequestLinkUtil getUrlByKey:RESIDENCE_MODIFY]]];
@@ -90,6 +99,7 @@
             if ([@"success" isEqualToString:[posterDict objectForKey:@"resultCode"]]) {
                 NSString *responseString = [createAddressReq responseString];
                 NSLog(@"%@",responseString);
+                self.us.addressDic = nil;
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
                 NSString *errorString = [posterDict objectForKey:@"error"];

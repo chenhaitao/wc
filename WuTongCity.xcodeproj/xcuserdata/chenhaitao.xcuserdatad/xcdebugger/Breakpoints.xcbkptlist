@@ -59,19 +59,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "WuTongCity/View/SettingView/UserSetting/SelectResidenceViewController.m"
-         timestampString = "402051550.548976"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "WuTongCity/XMPPManager.m"
          timestampString = "402116303.046082"
          startingColumnNumber = "9223372036854775807"

@@ -36,7 +36,7 @@
 @property(strong, nonatomic) EditUserTelViewController *editUserTelViewController;//修改手机页面
 @property(strong, nonatomic) EditUserAddressViewController *editUserAddressViewController;//修改地址页面
 @property(strong, nonatomic) EditUserJobViewController *editUserJobViewController;//修改地址页面
-
+@property (nonatomic,strong) NSDictionary *addressDic;
 
 //@property (strong, nonatomic)NSString *imagePath;
 

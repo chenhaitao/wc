@@ -39,6 +39,10 @@
     UserSettingTableView.delegate = self;
     UserSettingTableView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:UserSettingTableView];
+    
+    //add
+    UserVO *user = [DataCenter sharedInstance].userVO;
+    self.addressDic = [NSDictionary dictionaryWithObjectsAndKeys:user.building,@"building",user.unit,@"unit",user.room,@"room", nil];
 }
 
 - (void)viewDidUnload{
@@ -50,13 +54,22 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    //add
+    if (self.addressDic) {
+        UserVO *user = [DataCenter sharedInstance].userVO;
+        user.building = self.addressDic[@"building"];
+        user.unit= self.addressDic[@"unit"];
+        user.room = self.addressDic[@"room"];
+    }
+    
+    
     //以下是每次进入页面都必须重新加载的
     userVO = dataCenter.userVO;//全局用户信息
     self.userDict = [userVO getUserDcit];//用户信息集合
     self.userSectionArray = [[NSArray alloc]initWithArray:[[self.userDict allKeys]sortedArrayUsingSelector:@selector(compare:)]];//用户分组key
     [UserSettingTableView reloadData];
 
-    
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -217,6 +230,7 @@
             self.editUserAddressViewController= [[EditUserAddressViewController alloc]init];
             [self.navigationController pushViewController:self.editUserAddressViewController animated:YES];
             self.editUserAddressViewController.title = @"地址";
+            self.editUserAddressViewController.us = self;
             break;
         case 7://修改性别
             self.editUserSexViewController= [[EditUserSexViewController alloc]initWithUserVO:dataCenter.userVO];

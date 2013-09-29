@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class UserSettingViewController;
 
 @interface EditUserAddressViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate,UIAlertViewDelegate,MBProgressHUDDelegate>{
     UITableView *editUserAddressTableView;
@@ -17,6 +18,6 @@
 }
 
 @property (strong,nonatomic) NSString *userAddress;
-
+@property (nonatomic,strong) UserSettingViewController *us;
 
 @end
