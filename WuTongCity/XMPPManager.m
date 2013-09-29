@@ -337,7 +337,8 @@ static XMPPManager *sharedManager;
 - (void)xmppStreamDidConnect:(XMPPStream *)sender{
 	DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
 	NSError *error = nil;
-    NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:LOGIN_PASSWORD];
+   // NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:LOGIN_PASSWORD];
+    NSString *password = [DataCenter sharedInstance].userVO.password;
     //登录
     if (self.isLoginOperation) {
         if (![xmppStream authenticateWithPassword:password error:&error]){
@@ -362,7 +363,10 @@ static XMPPManager *sharedManager;
 
 //注册验证密码成功
 - (void)xmppStreamDidRegister:(XMPPStream *)sender{
+    
     DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    [self goOnline];
+    [xmppRoster fetchRoster];
     //    registerSuccess = YES;
 //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"创建帐号成功"
 //                                                        message:@""
@@ -442,6 +446,7 @@ static XMPPManager *sharedManager;
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
 	DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
+    NSLog(@"%@",[error localizedDescription]);
 }
 
 

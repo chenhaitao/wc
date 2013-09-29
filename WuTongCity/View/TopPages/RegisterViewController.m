@@ -461,7 +461,24 @@
         
         //初始化用户信息
         UserVO *userVO = [[UserVO alloc] initLoginUserWithDict:userInfoDict loginId:userNameText.text password:userPassWordText.text];
+        //add
+        NSDictionary *dic = [userInfoDict objectForKey:@"account"];
+        if (userVO.loginId.length == 0) {
+            userVO.loginId = [dic objectForKey:@"loginId"];
+            userVO.password = [dic objectForKey:@"loginPassword"];
+            userVO.isTempAcount = [[dic objectForKey:@"isTempAcco"] intValue];
+        }
+        
         [DataCenter sharedInstance].userVO = userVO;//放入数据中心
+        
+        
+        
+//        Village *village = [Village new];
+//        NSArray *userResidences = [userInfoDict objectForKey:@"userResidences"];
+//        NSDictionary *villagedic = [ [userResidences lastObject] objectForKey:@"village"];
+//        village.uuid = [villagedic objectForKey:@"uuid"];
+//        village.name = [villagedic objectForKey:@"name"];
+//        [DataCenter sharedInstance].village = village;//将选择的小区信息放入数据中心
         
         Village *village = [Village new];
         NSArray *userResidences = [userInfoDict objectForKey:@"userResidences"];
