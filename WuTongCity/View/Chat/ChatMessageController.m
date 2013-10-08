@@ -106,7 +106,9 @@
     
 //    [WCMessageObject save:notifacation.object];
     
-    
+    if ( [notifacation.object messageFrom] == nil) {
+        return;
+    }
 
     [self refresh];
 }

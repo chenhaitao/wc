@@ -702,6 +702,8 @@
     [self finishReloadingData];//完成下拉更新
     UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"服务器异常" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
     [av show];
+  
+    
     [HUD hide:YES];
 }
 

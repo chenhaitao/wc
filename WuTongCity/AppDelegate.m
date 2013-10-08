@@ -178,6 +178,11 @@
         }else{
             UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"登陆失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
             [av show];
+            
+            WZUser *user = [[WZUser MR_findByAttribute:@"loginId" withValue:[_dict objectForKey:@"loginId"]] lastObject];
+            [user MR_deleteEntity];
+             [[NSManagedObjectContext MR_defaultContext] MR_save];
+            
                 SelectVillagelViewController *controller = [[SelectVillagelViewController alloc] init];
                 UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:controller];
                 navCtrl.navigationBar.barStyle = UIBarStyleBlack;

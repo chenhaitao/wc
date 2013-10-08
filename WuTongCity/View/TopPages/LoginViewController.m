@@ -14,6 +14,7 @@
 #import "Village.h"
 #import "XMPPManager.h"
 #import "NSString.h"
+#import "WZUser.h"
 
 @interface LoginViewController ()
 
@@ -293,6 +294,7 @@
     }else{
         UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"梧桐邑" message:@"登陆失败" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles: nil];
         [av show];
+        
         
     }
     [HUD hide:YES];

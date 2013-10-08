@@ -25,7 +25,7 @@
                   symbolName = "-[LimitViewController limitUser:]"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "402906571.973834"
+                  timestampString = "402911393.536768"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -39,7 +39,7 @@
                   symbolName = "__33-[LimitViewController limitUser:]_block_invoke105"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "402906571.974279"
+                  timestampString = "402911393.537286"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -100,47 +100,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/XMPPManager.m"
-            timestampString = "402116130.654623"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "-xmppStream:willSecureWithSettings:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/XMPPManager.m"
-            timestampString = "402116131.892718"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-xmppStream:willSecureWithSettings:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WuTongCity/View/Chat/ChatMessageController.m"
-            timestampString = "402905554.007095"
+            timestampString = "402910260.867152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-newMsgCome:"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,27 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WuTongCity/View/Chat/ChatSendMsgViewController.m"
-            timestampString = "402905773.941166"
+            timestampString = "402910272.241997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "-newMsgCome:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/Chat/ChatSendMsgViewController.m"
-            timestampString = "402905821.407039"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "-refresh2:"
             landmarkType = "5">
          </BreakpointContent>
@@ -183,13 +135,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WuTongCity/Model/WCMessageObject.m"
-            timestampString = "402906567.1444"
+            filePath = "WuTongCity/XMPPManager.m"
+            timestampString = "402910428.773779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "+save:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-sendMessage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

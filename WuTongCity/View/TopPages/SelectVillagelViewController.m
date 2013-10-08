@@ -97,7 +97,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.navigationController.view addSubview:HUD];
     HUD.delegate = self;
     [HUD show:YES];
@@ -382,6 +382,10 @@
                                         cancelButtonTitle:@"好的"
                                         otherButtonTitles: nil];
         [av show];
+        
+        WZUser *user = [[WZUser MR_findByAttribute:@"loginId" withValue:[_dict objectForKey:@"loginId"]] lastObject];
+        [user MR_deleteEntity];
+        [[NSManagedObjectContext MR_defaultContext] MR_save];
 
     }];
     [loginReq startAsynchronous];

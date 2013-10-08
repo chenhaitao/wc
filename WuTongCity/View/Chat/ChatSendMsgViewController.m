@@ -186,7 +186,7 @@
 {
     [self.tabBarController.tabBarItem setBadgeValue:@"1"];
     
-    //[WCMessageObject save:notifacation.object];
+   
     
     [self refresh2:notifacation.object];
     
@@ -195,32 +195,11 @@
 - (void)refresh2:(WCMessageObject*)mssage
 {
     if (self.view.window != nil) {
-     /*   FMDatabase *db=[FMDatabase databaseWithPath:DATABASE_PATH];
-        if (![db open]) {
-            NSLog(@"数据打开失败");
-            return ;
+     
+        if (mssage.messageFrom == nil) {
+            return;
         }
         
-        NSString *userId = _chatPerson.userId;
-        NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate desc Limit 0,1" ];
-       // NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageDate desc Limit 0 , 1" ];
-        NSMutableArray *messageList = [NSMutableArray array];
-        NSLog(@"%@",[DataCenter sharedInstance].userVO.userId);
-        
-       FMResultSet *rs=[db executeQuery:queryString,[DataCenter sharedInstance].userVO.userId,userId,userId,[DataCenter sharedInstance].userVO.userId];
-        while ([rs next]) {
-            WCMessageObject *message=[[WCMessageObject alloc]init];
-            [message setMessageId:[rs objectForColumnName:kMESSAGE_ID]];
-            [message setMessageContent:[rs stringForColumn:kMESSAGE_CONTENT]];
-            [message setMessageDate:[rs dateForColumn:kMESSAGE_DATE]];
-            [message setMessageFrom:[rs stringForColumn:kMESSAGE_FROM]];
-            [message setMessageTo:[rs stringForColumn:kMESSAGE_TO]];
-            [message setMessageType:[rs objectForColumnName:kMESSAGE_TYPE]];
-            NSLog(@"messageCotent:%@",message.messageContent);
-            [ messageList addObject:message];
-            
-        }
-        [msgRecords insertObject:messageList.lastObject atIndex:msgRecords.count];*/
         [msgRecords addObject:mssage];
         
         [self.tableView reloadData];
