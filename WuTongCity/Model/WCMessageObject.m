@@ -57,6 +57,7 @@
     
     
     NSString *insertStr=@"INSERT INTO 'wcMessage' ('messageFrom','messageTo','messageContent','messageDate','messageType') VALUES (?,?,?,?,?)";
+
     worked = [db executeUpdate:insertStr,aMessage.messageFrom,aMessage.messageTo,aMessage.messageContent,aMessage.messageDate,aMessage.messageType];
     FMDBQuickCheck(worked);
     
@@ -96,10 +97,10 @@
         return messageList;
     }
     
-    //NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate  Limit %i offset %i",10,pageInde*10 ];
+    NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate desc Limit  %i , %i",(pageInde-1)*10,10 ];
     
     
-    NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageid desc  Limit %i , %i",(pageInde-1)*10,10];
+   // NSString *queryString2= [NSString stringWithFormat:@"select * from wcMessage order by messageid desc  Limit %i , %i",(pageInde-1)*10,10];
     
      NSLog(@"queryString %@",queryString);
     

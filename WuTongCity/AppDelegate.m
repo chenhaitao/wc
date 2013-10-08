@@ -103,14 +103,7 @@
     
 
     
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        for (int i= 0 ;i<100;i++ ) {
-//            WCMessageObject *m = [WCMessageObject new];
-//            m.messageContent = [NSString stringWithFormat:@"hello %i",i ];
-//            [WCMessageObject save:m];
-//        }
-//    });
+
     
     return YES;
 }

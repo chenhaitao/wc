@@ -9,6 +9,7 @@
 #import "ChatSendMsgViewController.h"
 #import "XMPPMessage.h"
 #import "ChatSendMessageCell.h"
+#import "WCMessageObject.h"
 //#import "UIImageView+WebCache.h"
 
 
@@ -157,6 +158,7 @@
         cell=[[ChatSendMessageCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     WCMessageObject *msg=[msgRecords objectAtIndex:indexPath.row];
+    NSLog(@"mesage=%@",msg.messageContent);
     [cell setMessageObject:msg];
     
 
@@ -186,26 +188,26 @@
     
     //[WCMessageObject save:notifacation.object];
     
-    [self refresh2];
+    [self refresh2:notifacation.object];
     
 }
 
-- (void)refresh2
+- (void)refresh2:(WCMessageObject*)mssage
 {
     if (self.view.window != nil) {
-        FMDatabase *db=[FMDatabase databaseWithPath:DATABASE_PATH];
+     /*   FMDatabase *db=[FMDatabase databaseWithPath:DATABASE_PATH];
         if (![db open]) {
             NSLog(@"数据打开失败");
             return ;
         }
         
-        
-        //NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate  Limit %i offset %i",10,pageInde*10 ];
-        NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageDate desc Limit 0 , 1" ];
+        NSString *userId = _chatPerson.userId;
+        NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage where (messageFrom=? and messageTo=?) or (messageFrom=? and messageTo=?) order by messageDate desc Limit 0,1" ];
+       // NSString *queryString= [NSString stringWithFormat:@"select * from wcMessage order by messageDate desc Limit 0 , 1" ];
         NSMutableArray *messageList = [NSMutableArray array];
         NSLog(@"%@",[DataCenter sharedInstance].userVO.userId);
         
-        FMResultSet *rs=[db executeQuery:queryString];
+       FMResultSet *rs=[db executeQuery:queryString,[DataCenter sharedInstance].userVO.userId,userId,userId,[DataCenter sharedInstance].userVO.userId];
         while ([rs next]) {
             WCMessageObject *message=[[WCMessageObject alloc]init];
             [message setMessageId:[rs objectForColumnName:kMESSAGE_ID]];
@@ -214,11 +216,15 @@
             [message setMessageFrom:[rs stringForColumn:kMESSAGE_FROM]];
             [message setMessageTo:[rs stringForColumn:kMESSAGE_TO]];
             [message setMessageType:[rs objectForColumnName:kMESSAGE_TYPE]];
+            NSLog(@"messageCotent:%@",message.messageContent);
             [ messageList addObject:message];
             
         }
-        [msgRecords insertObject:messageList.lastObject atIndex:msgRecords.count - 1];
+        [msgRecords insertObject:messageList.lastObject atIndex:msgRecords.count];*/
+        [msgRecords addObject:mssage];
+        
         [self.tableView reloadData];
+         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
    
 }
