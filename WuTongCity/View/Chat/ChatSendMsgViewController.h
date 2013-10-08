@@ -11,13 +11,14 @@
 #import "FaceToolBar.h"
 #import "FMDatabase.h"
 #import "FMResultSet.h"
+#import "EGORefreshTableView.h"
 
 
-@interface ChatSendMsgViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, FaceToolBarDelegate>
+@interface ChatSendMsgViewController : EGORefreshTableView <FaceToolBarDelegate>
 {
     DataCenter *dataCenter;
     //    IBOutlet UITableView *msgRecordTable;
-    UITableView *msgRecordTable;
+//    UITableView *msgRecordTable;
     NSMutableArray *msgRecords;
     //    IBOutlet UITextField *messageText;
     UITextField *messageText;

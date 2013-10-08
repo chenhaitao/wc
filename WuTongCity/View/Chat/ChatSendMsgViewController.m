@@ -33,13 +33,10 @@
     
     self.pageNu = 1;
     
-    
-    msgRecordTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-90) style:UITableViewStylePlain];
-    msgRecordTable.dataSource = self;
-    msgRecordTable.delegate = self;
-    [self.view addSubview:msgRecordTable];
-    [msgRecordTable setBackgroundView:nil];
-    [msgRecordTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 10.0, 0);
+    [self createHeaderView];
+    [self.tableView setBackgroundView:nil];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     FaceToolBar* bar=[[FaceToolBar alloc]initWithFrame:CGRectMake(0.0f,self.view.frame.size.height - toolBarHeight,self.view.frame.size.width,toolBarHeight) superView:self.view text:@""];
     bar.delegate=self;
@@ -84,14 +81,26 @@
     
 }
 
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (scrollView.contentOffset.y < -60) {
-        [self refresh1];
+#pragma mark-
+#pragma mark overide methods
+-(void)beginToReloadData:(EGORefreshPos)aRefreshPos{
+	[super beginToReloadData:aRefreshPos];
+    if (aRefreshPos == EGORefreshHeader) {//下拉更新数据
+        [self performSelector:@selector(refreshDataSource) withObject:nil afterDelay:2.0];
     }
 }
+
+//下拉更新
+-(void)refreshDataSource{
+    [self refresh1];
+}
+
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+//{
+//    if (scrollView.contentOffset.y < -60) {
+//        [self refresh1];
+//    }
+//}
 
 -(void)refresh1
 {
@@ -100,16 +109,17 @@
         NSMutableArray *array =[WCMessageObject fetchMessageListWithUser:_chatPerson.userId byPage:self.pageNu+1];
         if (array.count!=0) {
            msgRecords = [NSMutableArray arrayWithArray: [array arrayByAddingObjectsFromArray:msgRecords]];
-            [msgRecordTable reloadData];
+            [self.tableView reloadData];
             
-            [msgRecordTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+           // [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
             
             self.pageNu++;
         }
         
         self.isLoading = NO;
+        [self finishReloadingData];//完成下拉更新
     }
-   
+    
     
 }
 -(void)refresh
@@ -117,9 +127,9 @@
  
         msgRecords =[WCMessageObject fetchMessageListWithUser:_chatPerson.userId byPage:1];
         if (msgRecords.count!=0) {
-            [msgRecordTable reloadData];
+            [self.tableView reloadData];
             
-            [msgRecordTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:msgRecords.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 
         }
         
@@ -216,7 +226,7 @@
             
         }
         [msgRecords insertObject:messageList.lastObject atIndex:msgRecords.count - 1];
-        [msgRecordTable reloadData];
+        [self.tableView reloadData];
     }
    
 }
