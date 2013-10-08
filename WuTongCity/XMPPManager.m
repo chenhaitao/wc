@@ -198,13 +198,7 @@ static XMPPManager *sharedManager;
 	NSString *myJID = [DataCenter sharedInstance].userVO.userId;
 	if (myJID == nil) return NO;
     
-    
-    
-    
-//    [xmppStream setMyJID:[XMPPJID jidWithUser:myJID domain:DOMAIN_NAME resource:@"wutongyi"]];
-    
-    [xmppStream setMyJID:[XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",[DataCenter sharedInstance].userVO.userId,HOST_NAME]]];
-    
+    [xmppStream setMyJID:[XMPPJID jidWithUser:myJID domain:DOMAIN_NAME resource:@"wutongyi"]];
 	NSError *error = nil;
 	if (![xmppStream connectWithTimeout:10 error:&error]){
 		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"服务器异常"
