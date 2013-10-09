@@ -87,14 +87,23 @@
 //            [updateReq setPostValue:self.userName.text forKey:@"loginId"];
 //            [updateReq setPostValue:self.password.text forKey:@"loginPassword"];
            
+            ASIHTTPRequest *req = (ASIHTTPRequest *)updateReq;
+            
             [updateReq setCompletionBlock:^{
-                self.user.password = [MD5 md5:self.password.text];
-                self.user.loginId =  self.userName.text;
-                [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
+               NSString *flag = req.responseString;
+                if (![flag isEqualToString:@"failure"]) {
+                    self.user.password = [MD5 md5:self.password.text];
+                    self.user.loginId =  self.userName.text;
+                    [[NSManagedObjectContext MR_defaultContext] MR_saveOnlySelfAndWait];
+                    
+                    
+                    [[[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+                    [HUD hide:YES];
+                }else{
+                    [[[UIAlertView alloc] initWithTitle:@"提示" message:@"修改失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+                    [HUD hide:YES];
+                }
                 
-                
-               [[[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
-                [HUD hide:YES];
                 
             }];
             
