@@ -441,12 +441,14 @@
         [loginReq setDidFailSelector:@selector(requestError:)];
         [loginReq startAsynchronous];
     }else{
-        NSDictionary *eDict = [userDict objectForKey:@"error"];
+        NSDictionary *eDict = [userDict objectForKey:@"errors"];
         NSDictionary *errorDict = [[NSDictionary alloc] initWithDictionary:[[eDict objectForKey:@"globalErrors"] objectAtIndex:0]];
        
         UIAlertView *av1=[[UIAlertView alloc]initWithTitle:@"注册" message: [errorDict objectForKey:@"errorMsg"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [av1 show];
+        
     }
+    [HUD hide:YES];
 }
 
 #pragma mark  -------登录网络请求回调----------
