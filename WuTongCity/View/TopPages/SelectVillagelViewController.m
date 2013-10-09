@@ -178,12 +178,18 @@
     for (WZUser *u in us) {
         NSLog(@"%@,%@,%@,%@",u.loginId,u.password,u.villageId,village.uuid);
     }
-    NSArray *users =[WZUser   MR_findByAttribute:@"villageId" withValue:village.uuid ];
-     WZUser *user = [users lastObject];
-    BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
-    if (user.loginId.length >0 && user.password.length >0 && flag) {
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:user.loginId,@"loginId",user.password,@"password",user.villageId,@"villageId", nil];
-        [self login:dic];
+    //NSArray *users =[WZUser   MR_findByAttribute:@"villageId" withValue:village.uuid ];
+    NSArray *users = [WZUser MR_findByAttribute:@"villageId" withValue:village.uuid andOrderBy:@"loginTime" ascending:NO];
+    if (users.count) {
+        WZUser *user = [users objectAtIndex:0];
+        BOOL flag = [[NSUserDefaults standardUserDefaults]  boolForKey:@"autoLogin"];
+        if (user.loginId.length >0 && user.password.length >0 && flag) {
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:user.loginId,@"loginId",user.password,@"password",user.villageId,@"villageId", nil];
+            [self login:dic];
+        }else{
+            LoginViewController *loginViewController = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:loginViewController animated:YES];
+        }
     }else{
         LoginViewController *loginViewController = [[LoginViewController alloc]init];
         [self.navigationController pushViewController:loginViewController animated:YES];

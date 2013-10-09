@@ -25,7 +25,7 @@
                   symbolName = "-[LimitViewController limitUser:]"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "402991295.846713"
+                  timestampString = "402991706.012779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -39,7 +39,7 @@
                   symbolName = "__33-[LimitViewController limitUser:]_block_invoke105"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "402991295.847013"
+                  timestampString = "402991706.013107"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -103,38 +103,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/Chat/ChatMessageController.m"
-            timestampString = "402910260.867152"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-newMsgCome:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/Chat/ChatSendMsgViewController.m"
-            timestampString = "402910272.241997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-refresh2:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "WuTongCity/View/TopPages/RegisterViewController.m"
             timestampString = "402912114.877208"
             startingColumnNumber = "9223372036854775807"
@@ -152,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WuTongCity/View/TopPages/SelectVillagelViewController.m"
-            timestampString = "402988649.425958"
+            timestampString = "402991705.65248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
             landmarkName = "-login:"
             landmarkType = "5">
          </BreakpointContent>
@@ -173,38 +141,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "-commit:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/SettingView/EditUserNameOrPasswordViewController.m"
-            timestampString = "402989601.43302"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "-commit:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/SettingView/EditUserNameOrPasswordViewController.m"
-            timestampString = "402989639.624501"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
             landmarkName = "-commit:"
             landmarkType = "5">
          </BreakpointContent>
