@@ -227,7 +227,7 @@
 {
     [super viewDidAppear:animated];
     UserVO *currentUser = [DataCenter sharedInstance].userVO;
-    if (currentUser.isTempAcount  == 0) {
+    if (currentUser.isTempAcount  != 1) {
         [self.customStatusBar hiddenMessage];
         
     }else{
