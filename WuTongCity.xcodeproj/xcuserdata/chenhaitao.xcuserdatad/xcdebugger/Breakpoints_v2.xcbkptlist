@@ -25,7 +25,7 @@
                   symbolName = "-[LimitViewController limitUser:]"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "403062729.858533"
+                  timestampString = "403065423.797515"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -39,7 +39,7 @@
                   symbolName = "__33-[LimitViewController limitUser:]_block_invoke105"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "403062729.858813"
+                  timestampString = "403065423.797915"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -151,24 +151,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/Chat/ChatMessageController.m"
-            timestampString = "403061021.32411"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-newMsgCome:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-            timestampString = "403062688.507586"
+            timestampString = "403065467.340787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"

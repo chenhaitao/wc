@@ -143,7 +143,7 @@
             if (userVO.loginId.length == 0) {
                 userVO.loginId = [dic objectForKey:@"loginId"];
                 userVO.password = [dic objectForKey:@"loginPassword"];
-                 userVO.isTempAcount = [dic objectForKey:@"isTempAcco"];
+                 userVO.isTempAcount = [[dic objectForKey:@"isTempAcco"] intValue];
             }
             [DataCenter sharedInstance].userVO = userVO;//放入数据中心
            
