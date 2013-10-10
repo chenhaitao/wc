@@ -99,16 +99,18 @@
         NSLog(@"time is nil");
         return;
     }
-//    
+    
 //    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
 //    //2013-09-12 13:22:39.203
-//    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+//    [formater setDateFormat:@"yyyy-MM-dd%20HH:mm:ss"];
 //    time = [formater stringFromDate:[NSDate dateWithTimeIntervalSince1970:0]];
     
+    
     NSString *url = [NSString stringWithFormat:@"http://v2.wutongyi.com/m/publicBlog/publicBlogList.do"];
+    url = [url stringByAppendingFormat:@"?time=%@",time ];
     
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setPostValue:time forKey:@"time"];
+  //  [request setPostValue:time forKey:@"time"];
     __block ASIHTTPRequest *req  = request;
     newWeiboComment = [NSMutableArray array];
     [request setCompletionBlock:^{
@@ -140,7 +142,7 @@
                 }
                 NSDateFormatter *formater = [[NSDateFormatter alloc] init];
                 //2013-09-12 13:22:39.203
-                [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                [formater setDateFormat:@"yyyy-MM-dd%20HH:mm:ss"];
                 NSString *time = [formater stringFromDate:[NSDate date]];
                 [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
             }
@@ -677,7 +679,7 @@
         
         NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         //2013-09-12 13:22:39.203
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formater setDateFormat:@"yyyy-MM-dd%20HH:mm:ss"];
         NSString *time = [formater stringFromDate:[NSDate date]];
         [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
         
