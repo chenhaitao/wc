@@ -184,7 +184,7 @@
 #pragma mark  接受新消息广播
 -(void)newMsgCome:(NSNotification *)notifacation
 {
-    [self.tabBarController.tabBarItem setBadgeValue:@"1"];
+  //  [self.tabBarController.tabBarItem setBadgeValue:@"1"];
     
    
     

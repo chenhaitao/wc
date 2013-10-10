@@ -37,6 +37,7 @@
     [super viewWillAppear:animated];
     [self refresh];//获取最近联系人,并刷新tableview
     [_messageTable reloadData];
+     [self.navigationController.tabBarItem setBadgeValue:nil];
 }
 
 - (void)viewDidUnload
@@ -101,7 +102,7 @@
 //    int badgeValue = 2;
 //    tController.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",badgeValue+1];
 //    
-    [self.navigationController.tabBarItem setBadgeValue:@""];
+ //   [self.navigationController.tabBarItem setBadgeValue:@""];
 //    NSLog(@"%@",notifacation.object);
     
 //    [WCMessageObject save:notifacation.object];
@@ -109,8 +110,13 @@
     if ( [notifacation.object messageFrom] == nil) {
         return;
     }
+    if (self.view.window == nil) {
+        [self.navigationController.tabBarItem setBadgeValue:@"new"];
+    }else{
+        [self refresh];
+    }
 
-    [self refresh];
+    
 }
 
 //最近联系人
