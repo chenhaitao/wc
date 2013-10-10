@@ -78,7 +78,7 @@
     [self.view addSubview:self.messageView];
     
     
-    [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(weiboComment) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(weiboComment) userInfo:nil repeats:YES];
 }
 
 - (void)newCommentAction
@@ -140,7 +140,7 @@
                 }
                 NSDateFormatter *formater = [[NSDateFormatter alloc] init];
                 //2013-09-12 13:22:39.203
-                [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+                [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
                 NSString *time = [formater stringFromDate:[NSDate date]];
                 [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
             }
@@ -677,7 +677,7 @@
         
         NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         //2013-09-12 13:22:39.203
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         NSString *time = [formater stringFromDate:[NSDate date]];
         [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
         
