@@ -25,7 +25,7 @@
                   symbolName = "-[LimitViewController limitUser:]"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "403065423.797515"
+                  timestampString = "403078843.489531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -39,7 +39,7 @@
                   symbolName = "__33-[LimitViewController limitUser:]_block_invoke105"
                   moduleName = "WuTongCity"
                   urlString = "file://localhost/Users/chenhaitao/Desktop/wc/WuTongCity/View/SettingView/Privacy/LimitViewController.m"
-                  timestampString = "403065423.797915"
+                  timestampString = "403078843.489989"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
@@ -142,22 +142,6 @@
             startingLineNumber = "111"
             endingLineNumber = "111"
             landmarkName = "-commit:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WuTongCity/View/Weibo/WeiBoViewController.m"
-            timestampString = "403065467.340787"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

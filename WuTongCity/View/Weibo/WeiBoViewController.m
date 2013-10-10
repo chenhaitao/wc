@@ -138,22 +138,20 @@
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kCommentMessageFlag"];
                      [self showWeiboCommentMessage];
                 }
+                NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+                //2013-09-12 13:22:39.203
+                [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+                NSString *time = [formater stringFromDate:[NSDate date]];
+                [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
             }
             
            
             
             
-            NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-            //2013-09-12 13:22:39.203
-            [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
-            NSString *time = [formater stringFromDate:[NSDate date]];
-            [[NSUserDefaults standardUserDefaults] setObject:time forKey:kweiboTime];
             
-        }else{
-            UIAlertView *av=[[UIAlertView alloc]initWithTitle:@"邻居说" message:@"邻居说读取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [av show];
             
         }
+    
         
         
         

@@ -25,6 +25,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"commentKey"] == nil) {
+         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"commentKey"];
+    }
+    
 
     //add
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"addData.sqlite"];
